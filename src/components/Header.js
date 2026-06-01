@@ -55,9 +55,18 @@ export default function Header() {
   return (
     <header className="w-full z-50">
       {/* Top Alert Bar */}
-      <div className="bg-navy text-white text-center py-2.5 px-4 text-xs md:text-sm font-medium tracking-wide border-b border-navy-light/20 relative z-50">
-        <span className="inline-block animate-pulse mr-2 font-bold text-gold">⚠️ NOTICE:</span>
-        We accept payments only in our registered bank accounts & UPI payment updated on the website.
+      <div className="bg-navy text-white text-center py-2.5 px-4 text-xs md:text-sm font-medium tracking-wide border-b border-navy-light/20 relative z-50 flex flex-col md:flex-row items-center justify-center gap-1.5 md:gap-4">
+        <div className="flex items-center justify-center space-x-2">
+          <span className="bg-teal/20 text-teal-light px-2 py-0.5 rounded text-[9px] font-bold tracking-widest border border-teal/30">
+            SEBI REGISTERED
+          </span>
+          <span className="font-semibold text-gray-200">We are SEBI registered Research Analysts (INH000009560)</span>
+        </div>
+        <span className="hidden md:inline text-gray-500">|</span>
+        <div className="flex items-center justify-center">
+          <span className="inline-block animate-pulse mr-1.5 font-bold text-teal">⚠️ NOTICE:</span>
+          <span className="text-gray-300">We accept payments only in our registered bank accounts & UPI handle updated on the website.</span>
+        </div>
       </div>
 
       {/* Main Navbar */}

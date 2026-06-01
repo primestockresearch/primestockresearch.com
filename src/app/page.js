@@ -14,7 +14,6 @@ import {
   Star 
 } from 'lucide-react';
 import HeroSlider from '@/components/HeroSlider';
-import PieChart from '@/components/PieChart';
 import ContactForm from '@/components/ContactForm';
 
 export default function HomePage() {
@@ -152,12 +151,15 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Column - Pie Chart */}
-            <div className="lg:col-span-5 flex flex-col items-center">
-              <span className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3 font-poppins">
-                Research Allocation Matrix
-              </span>
-              <PieChart />
+            {/* Right Column - Premium Dashboard Illustration */}
+            <div className="lg:col-span-5 flex flex-col items-center justify-center">
+              <div className="relative w-full max-w-md bg-white p-2 rounded-2xl border border-gray-100 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                <img 
+                  src="/images/financial-dashboard.png" 
+                  alt="Prime Stock Research Dashboard Analysis"
+                  className="w-full h-auto rounded-xl object-cover"
+                />
+              </div>
             </div>
 
           </div>
