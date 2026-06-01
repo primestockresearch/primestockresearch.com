@@ -13,10 +13,20 @@ module.exports = {
           DEFAULT: '#0A1F44',
           dark: '#051024',
         },
+        teal: {
+          light: '#00a2b5',
+          DEFAULT: '#008B9B',
+          dark: '#007380',
+        },
+        accentRed: {
+          light: '#ff4d6a',
+          DEFAULT: '#FF2A4B',
+          dark: '#d91433',
+        },
         gold: {
-          light: '#f7b84b',
-          DEFAULT: '#F5A623',
-          dark: '#cf8611',
+          light: '#00a2b5',
+          DEFAULT: '#008B9B',
+          dark: '#007380',
         },
       },
       fontFamily: {

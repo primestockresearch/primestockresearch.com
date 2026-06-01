@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Mail, Phone, MapPin, Shield, ExternalLink, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MapPin, Shield, ExternalLink } from 'lucide-react';
 
 export const metadata = {
   title: 'Complaint Redressal | Prime Stock Research',
@@ -39,7 +39,7 @@ export default function ComplaintRedressalPage() {
       {/* Page Header */}
       <section className="bg-gray-50/50 py-12 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
-          <div className="text-xs font-semibold text-gold uppercase tracking-widest mb-2 font-poppins">
+          <div className="text-xs font-semibold text-teal uppercase tracking-widest mb-2 font-poppins">
             Compliance Escalations
           </div>
           <h1 className="text-3xl md:text-4xl font-bold font-poppins text-navy">
@@ -62,7 +62,7 @@ export default function ComplaintRedressalPage() {
             <h2 className="text-xl md:text-2xl font-bold font-poppins text-navy">
               Grievance Escalation Matrix
             </h2>
-            <div className="h-1 w-12 bg-gold rounded-full"></div>
+            <div className="h-1 w-12 bg-teal rounded-full"></div>
             <p className="text-sm md:text-base text-gray-500 leading-relaxed">
               At Prime Stock Research, we prioritize client satisfaction and endeavor to resolve all grievances efficiently. Clients are advised to follow the step-by-step escalation hierarchy below to address any issues.
             </p>
@@ -75,10 +75,10 @@ export default function ComplaintRedressalPage() {
                 key={idx} 
                 className="bg-white p-6 rounded-xl border border-navy/10 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group"
               >
-                <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-gold group-hover:bg-navy transition-colors"></div>
+                <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-teal group-hover:bg-navy transition-colors"></div>
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                   <div className="space-y-2">
-                    <span className="text-xs font-extrabold uppercase text-gold tracking-widest block font-poppins">
+                    <span className="text-xs font-extrabold uppercase text-teal tracking-widest block font-poppins">
                       {step.level}
                     </span>
                     <h3 className="text-lg font-bold font-poppins text-navy">
@@ -88,12 +88,12 @@ export default function ComplaintRedressalPage() {
                       {step.desc}
                     </p>
                     <div className="flex flex-col sm:flex-row gap-3 pt-2 text-xs md:text-sm">
-                      <a href={`mailto:${step.email}`} className="flex items-center space-x-1.5 text-navy hover:text-gold transition-colors font-medium">
-                        <Mail className="h-4 w-4 shrink-0 text-gold" />
+                      <a href={`mailto:${step.email}`} className="flex items-center space-x-1.5 text-navy hover:text-teal transition-colors font-medium">
+                        <Mail className="h-4 w-4 shrink-0 text-teal" />
                         <span>{step.email}</span>
                       </a>
-                      <a href={`tel:${step.phone}`} className="flex items-center space-x-1.5 text-navy hover:text-gold transition-colors font-medium">
-                        <Phone className="h-4 w-4 shrink-0 text-gold" />
+                      <a href={`tel:${step.phone}`} className="flex items-center space-x-1.5 text-navy hover:text-teal transition-colors font-medium">
+                        <Phone className="h-4 w-4 shrink-0 text-teal" />
                         <span>{step.phone}</span>
                       </a>
                     </div>
@@ -115,7 +115,7 @@ export default function ComplaintRedressalPage() {
           {/* Compliance Officer Info */}
           <div className="bg-gray-50/50 p-6 md:p-8 rounded-xl border border-gray-100 space-y-6">
             <h3 className="text-lg font-bold font-poppins text-navy flex items-center space-x-2">
-              <Shield className="h-5.5 w-5.5 text-gold" />
+              <Shield className="h-5.5 w-5.5 text-teal" />
               <span>Registered Compliance Officer details</span>
             </h3>
             <hr className="border-gray-200" />
@@ -128,10 +128,10 @@ export default function ComplaintRedressalPage() {
               </div>
               <div className="space-y-3">
                 <div className="flex items-start space-x-2">
-                  <MapPin className="h-5 w-5 text-gold shrink-0 mt-0.5" />
+                  <MapPin className="h-5 w-5 text-teal shrink-0 mt-0.5" />
                   <p className="text-xs leading-relaxed text-gray-500">
                     <strong className="text-navy block text-sm mb-0.5">Address:</strong>
-                    Office No. 104, 1st Floor, Capital Plaza, Bandra East, Mumbai, Maharashtra 400051
+                    Correspondence details to be updated (Mumbai, Maharashtra)
                   </p>
                 </div>
               </div>
@@ -157,7 +157,7 @@ export default function ComplaintRedressalPage() {
                   <h4 className="font-bold text-navy text-sm font-poppins">SEBI SCORES Portal</h4>
                   <p className="text-[10px] text-gray-400">Lodge grievances online directly with SEBI</p>
                 </div>
-                <ExternalLink className="h-4.5 w-4.5 text-gold shrink-0 group-hover:translate-x-0.5 transition-transform" />
+                <ExternalLink className="h-4.5 w-4.5 text-teal shrink-0 group-hover:translate-x-0.5 transition-transform" />
               </a>
 
               <a
@@ -170,7 +170,7 @@ export default function ComplaintRedressalPage() {
                   <h4 className="font-bold text-navy text-sm font-poppins">SMART ODR Portal</h4>
                   <p className="text-[10px] text-gray-400">Online dispute resolution and arbitration</p>
                 </div>
-                <ExternalLink className="h-4.5 w-4.5 text-gold shrink-0 group-hover:translate-x-0.5 transition-transform" />
+                <ExternalLink className="h-4.5 w-4.5 text-teal shrink-0 group-hover:translate-x-0.5 transition-transform" />
               </a>
             </div>
           </div>

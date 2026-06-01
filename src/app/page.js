@@ -29,22 +29,22 @@ export default function HomePage() {
     {
       title: 'Upgraded Tools',
       desc: 'We leverage advanced analytical software and technical scanners to uncover optimal market setups.',
-      icon: <Wrench className="h-6 w-6 text-gold" />,
+      icon: <Wrench className="h-6 w-6 text-teal" />,
     },
     {
       title: 'Trading Modules',
       desc: 'Structured recommendations across Index, Stock Futures, Options, and Cash markets.',
-      icon: <Layers className="h-6 w-6 text-gold" />,
+      icon: <Layers className="h-6 w-6 text-teal" />,
     },
     {
       title: 'Faster Returns',
       desc: 'Short-term holding periods designed to optimize capital rotation and capture quick moves.',
-      icon: <TrendingUp className="h-6 w-6 text-gold" />,
+      icon: <TrendingUp className="h-6 w-6 text-teal" />,
     },
     {
       title: 'No Commission',
       desc: 'Pure advisory flat-fees. We do not participate in your profit-sharing or charge broker commissions.',
-      icon: <CircleDollarSign className="h-6 w-6 text-gold" />,
+      icon: <CircleDollarSign className="h-6 w-6 text-teal" />,
     },
   ];
 
@@ -121,13 +121,13 @@ export default function HomePage() {
             {/* Left Column - Features */}
             <div className="lg:col-span-7 space-y-8">
               <div className="space-y-3">
-                <span className="text-xs font-bold uppercase tracking-widest text-gold font-poppins">
+                <span className="text-xs font-bold uppercase tracking-widest text-teal font-poppins">
                   Who We Are
                 </span>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-poppins text-navy leading-tight tracking-tight">
                   Premium Financial Insights & Stock Advisory
                 </h2>
-                <div className="h-1.5 w-20 bg-gold rounded-full"></div>
+                <div className="h-1.5 w-20 bg-teal rounded-full"></div>
               </div>
               <p className="text-sm md:text-base text-gray-500 leading-relaxed">
                 At Prime Stock Research, we analyze and research the Indian capital markets with discipline and technical precision. We prioritize safety and risk management parameters to ensure retail and HNI investors can trade with confidence.
@@ -170,13 +170,13 @@ export default function HomePage() {
           
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-gold font-poppins">
+            <span className="text-xs font-bold uppercase tracking-widest text-teal font-poppins">
               Pricing Plans
             </span>
             <h2 className="text-3xl md:text-4xl font-bold font-poppins text-navy tracking-tight">
               Our Premium Stock Advisory Services
             </h2>
-            <div className="h-1.5 w-20 bg-gold rounded-full mx-auto"></div>
+            <div className="h-1.5 w-20 bg-teal rounded-full mx-auto"></div>
             <p className="text-sm md:text-base text-gray-500 leading-relaxed">
               Choose the package that matches your capital, asset class preferences, and risk tolerance.
             </p>
@@ -189,12 +189,12 @@ export default function HomePage() {
                 key={index}
                 className={`bg-white rounded-xl border flex flex-col justify-between transition-all duration-300 relative ${
                   plan.featured
-                    ? 'border-gold shadow-lg ring-1 ring-gold/20 scale-105 md:-translate-y-2'
+                    ? 'border-teal shadow-lg ring-1 ring-teal/20 scale-105 md:-translate-y-2'
                     : 'border-navy/10 shadow-sm hover:shadow-md'
                 }`}
               >
                 {plan.featured && (
-                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gold text-navy text-[11px] uppercase font-bold tracking-widest px-4 py-1 rounded-full shadow-sm">
+                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-teal text-white text-[11px] uppercase font-bold tracking-widest px-4 py-1 rounded-full shadow-sm">
                     Most Popular
                   </span>
                 )}
@@ -221,7 +221,7 @@ export default function HomePage() {
                   <ul className="space-y-4">
                     {plan.features.map((feat, i) => (
                       <li key={i} className="flex items-start space-x-3 text-sm text-gray-600">
-                        <Check className="h-5 w-5 text-gold shrink-0 mt-0.5" />
+                        <Check className="h-5 w-5 text-teal shrink-0 mt-0.5" />
                         <div>
                           <span className="font-semibold text-navy">{feat.label}:</span>{' '}
                           <span>{feat.value}</span>
@@ -237,8 +237,8 @@ export default function HomePage() {
                     onClick={scrollToContact}
                     className={`w-full py-3 rounded font-semibold text-center text-sm transition-all duration-300 ${
                       plan.featured
-                        ? 'bg-gold hover:bg-gold-light text-navy font-bold shadow-md hover:shadow-lg'
-                        : 'bg-navy hover:bg-navy-light text-white border border-transparent hover:border-gold hover:text-gold'
+                        ? 'bg-teal hover:bg-teal-light text-white font-bold shadow-md hover:shadow-lg'
+                        : 'bg-navy hover:bg-navy-light text-white border border-transparent hover:border-teal hover:text-teal'
                     }`}
                   >
                     Buy Now
@@ -257,13 +257,13 @@ export default function HomePage() {
           
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-gold font-poppins">
+            <span className="text-xs font-bold uppercase tracking-widest text-teal font-poppins">
               Reviews
             </span>
             <h2 className="text-3xl md:text-4xl font-bold font-poppins text-navy tracking-tight">
               What Our Clients Say About Us
             </h2>
-            <div className="h-1.5 w-20 bg-gold rounded-full mx-auto"></div>
+            <div className="h-1.5 w-20 bg-teal rounded-full mx-auto"></div>
           </div>
 
           {/* Testimonial Cards */}
@@ -277,7 +277,7 @@ export default function HomePage() {
                   {/* Rating */}
                   <div className="flex items-center space-x-1">
                     {[...Array(t.rating)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-gold text-gold" />
+                      <Star key={i} className="h-4 w-4 fill-teal text-teal" />
                     ))}
                   </div>
                   {/* Text */}
@@ -301,9 +301,9 @@ export default function HomePage() {
       </section>
 
       {/* Info Banner Section */}
-      <section className="bg-navy py-12 text-white border-y border-gold/20">
+      <section className="bg-navy py-12 text-white border-y border-teal/20">
         <div className="max-w-4xl mx-auto px-4 text-center space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-gold font-poppins block">
+          <span className="text-xs font-bold uppercase tracking-widest text-teal font-poppins block">
             💡 Educational Insight
           </span>
           <p className="text-lg md:text-xl font-medium font-poppins leading-relaxed">
@@ -322,33 +322,19 @@ export default function HomePage() {
             {/* Contact Details Column */}
             <div className="lg:col-span-5 space-y-8">
               <div className="space-y-3">
-                <span className="text-xs font-bold uppercase tracking-widest text-gold font-poppins">
+                <span className="text-xs font-bold uppercase tracking-widest text-teal font-poppins">
                   Get In Touch
                 </span>
                 <h2 className="text-3xl md:text-4xl font-bold font-poppins text-navy tracking-tight">
                   Reach Out To Our Experts
                 </h2>
-                <div className="h-1.5 w-20 bg-gold rounded-full"></div>
+                <div className="h-1.5 w-20 bg-teal rounded-full"></div>
               </div>
               <p className="text-sm md:text-base text-gray-500 leading-relaxed">
                 Have questions about our packages or regulatory guidelines? Contact us directly and our representative will guide you through our research methodology.
               </p>
 
               <div className="space-y-6 pt-4">
-                <div className="flex items-start space-x-4">
-                  <div className="p-3 bg-navy/5 border border-navy/10 rounded-full text-navy shrink-0 mt-0.5">
-                    <MapPin className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-navy font-poppins text-sm uppercase tracking-wider mb-1">
-                      Our Office Address
-                    </h4>
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      Office No. 104, 1st Floor, Capital Plaza, Bandra East, Mumbai, Maharashtra 400051
-                    </p>
-                  </div>
-                </div>
-
                 <div className="flex items-start space-x-4">
                   <div className="p-3 bg-navy/5 border border-navy/10 rounded-full text-navy shrink-0">
                     <Mail className="h-5 w-5" />
@@ -357,7 +343,7 @@ export default function HomePage() {
                     <h4 className="font-bold text-navy font-poppins text-sm uppercase tracking-wider mb-1">
                       Email Us
                     </h4>
-                    <a href="mailto:info@primestockresearch.com" className="text-sm text-gold font-semibold hover:underline">
+                    <a href="mailto:info@primestockresearch.com" className="text-sm text-teal font-semibold hover:underline">
                       info@primestockresearch.com
                     </a>
                   </div>
@@ -371,7 +357,7 @@ export default function HomePage() {
                     <h4 className="font-bold text-navy font-poppins text-sm uppercase tracking-wider mb-1">
                       Call Support
                     </h4>
-                    <a href="tel:+919999999999" className="text-sm text-gold font-semibold hover:underline">
+                    <a href="tel:+919999999999" className="text-sm text-teal font-semibold hover:underline">
                       +91-9999999999
                     </a>
                   </div>

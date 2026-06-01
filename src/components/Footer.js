@@ -1,23 +1,23 @@
 import Link from 'next/link';
-import { Award, Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
+import { Award, Mail, Phone, ExternalLink } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-navy text-gray-300 font-sans border-t-4 border-gold">
+    <footer className="bg-navy text-gray-300 font-sans border-t-4 border-teal">
       {/* Top Footer Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Brand & Registration */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2 text-white">
-              <Award className="h-8 w-8 text-gold" />
+              <Award className="h-8 w-8 text-teal" />
               <div className="flex flex-col">
                 <span className="text-xl font-bold font-poppins tracking-tight">
                   PRIME STOCK
                 </span>
-                <span className="text-[10px] uppercase font-bold tracking-widest text-gold -mt-1.5">
+                <span className="text-[10px] uppercase font-bold tracking-widest text-teal -mt-1.5">
                   Research Analyst
                 </span>
               </div>
@@ -27,9 +27,9 @@ export default function Footer() {
             </p>
             <div className="bg-navy-dark/40 p-4 rounded border border-navy-light/30 space-y-1.5 text-xs">
               <p className="font-semibold text-white">SEBI Registration Info:</p>
-              <p>No: <span className="text-gold font-mono">INH000009560</span></p>
+              <p>No: <span className="text-teal font-mono">INH000009560</span></p>
               <p>Type: Research Analyst</p>
-              <p>BASL Member ID: <span className="text-gold font-mono">BASL1045</span></p>
+              <p>BASL Member ID: <span className="text-teal font-mono">BASL1045</span></p>
             </div>
           </div>
 
@@ -40,19 +40,19 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link href="/" className="hover:text-gold transition-colors duration-150">Home</Link>
+                <Link href="/" className="hover:text-teal transition-colors duration-150">Home</Link>
               </li>
               <li>
-                <Link href="/about-us" className="hover:text-gold transition-colors duration-150">About Us</Link>
+                <Link href="/about-us" className="hover:text-teal transition-colors duration-150">About Us</Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-gold transition-colors duration-150">Our Services</Link>
+                <Link href="/services" className="hover:text-teal transition-colors duration-150">Our Services</Link>
               </li>
               <li>
-                <Link href="/payments" className="hover:text-gold transition-colors duration-150">Payments & Bank Details</Link>
+                <Link href="/payments" className="hover:text-teal transition-colors duration-150">Payments & Bank Details</Link>
               </li>
               <li>
-                <Link href="/refund-policy" className="hover:text-gold transition-colors duration-150">Refund Policy</Link>
+                <Link href="/refund-policy" className="hover:text-teal transition-colors duration-150">Refund Policy</Link>
               </li>
             </ul>
           </div>
@@ -64,23 +64,23 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link href="/investor-charter" className="hover:text-gold transition-colors duration-150">Investor Charter</Link>
+                <Link href="/investor-charter" className="hover:text-teal transition-colors duration-150">Investor Charter</Link>
               </li>
               <li>
-                <Link href="/complaint-redressal" className="hover:text-gold transition-colors duration-150">Complaint Redressal</Link>
+                <Link href="/complaint-redressal" className="hover:text-teal transition-colors duration-150">Complaint Redressal</Link>
               </li>
               <li>
-                <Link href="/complaint-data" className="hover:text-gold transition-colors duration-150">Complaint Data</Link>
+                <Link href="/complaint-data" className="hover:text-teal transition-colors duration-150">Complaint Data</Link>
               </li>
               <li>
-                <Link href="/annual-audit" className="hover:text-gold transition-colors duration-150">Annual Audit Status</Link>
+                <Link href="/annual-audit" className="hover:text-teal transition-colors duration-150">Annual Audit Status</Link>
               </li>
               <li>
                 <a 
                   href="https://scores.gov.in/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="flex items-center space-x-1 hover:text-gold transition-colors duration-150 group"
+                  className="flex items-center space-x-1 hover:text-teal transition-colors duration-150 group"
                 >
                   <span>SEBI SCORES Portal</span>
                   <ExternalLink className="h-3 w-3 opacity-60 group-hover:opacity-100 transition-opacity" />
@@ -91,7 +91,7 @@ export default function Footer() {
                   href="https://smartodr.in/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="flex items-center space-x-1 hover:text-gold transition-colors duration-150 group"
+                  className="flex items-center space-x-1 hover:text-teal transition-colors duration-150 group"
                 >
                   <span>SMART ODR Portal</span>
                   <ExternalLink className="h-3 w-3 opacity-60 group-hover:opacity-100 transition-opacity" />
@@ -106,21 +106,15 @@ export default function Footer() {
               Contact Info
             </h3>
             <ul className="space-y-3.5 text-sm">
-              <li className="flex items-start space-x-2.5">
-                <MapPin className="h-5 w-5 text-gold shrink-0 mt-0.5" />
-                <span className="leading-relaxed">
-                  Office No. 104, 1st Floor, Capital Plaza, Bandra East, Mumbai, Maharashtra 400051
-                </span>
-              </li>
               <li className="flex items-center space-x-2.5">
-                <Mail className="h-4 w-4 text-gold" />
-                <a href="mailto:info@primestockresearch.com" className="hover:text-gold">
+                <Mail className="h-4 w-4 text-teal" />
+                <a href="mailto:info@primestockresearch.com" className="hover:text-teal">
                   info@primestockresearch.com
                 </a>
               </li>
               <li className="flex items-center space-x-2.5">
-                <Phone className="h-4 w-4 text-gold" />
-                <a href="tel:+919999999999" className="hover:text-gold">
+                <Phone className="h-4 w-4 text-teal" />
+                <a href="tel:+919999999999" className="hover:text-teal">
                   +91-9999999999
                 </a>
               </li>
