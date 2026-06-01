@@ -1,10 +1,7 @@
+'use client';
+
 import Link from 'next/link';
 import { Landmark, QrCode, AlertOctagon, ShieldCheck, Copy } from 'lucide-react';
-
-export const metadata = {
-  title: 'Payments & Bank Details | Prime Stock Research',
-  description: 'Official payment page of Prime Stock Research. View our verified corporate bank account details and official UPI handle for safe transactions.',
-};
 
 export default function PaymentsPage() {
   const bankAccounts = [
