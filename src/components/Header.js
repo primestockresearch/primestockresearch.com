@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, ChevronDown, Award } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import Logo from './Logo';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,7 +46,6 @@ export default function Header() {
   ];
 
   const otherLinks = [
-    { name: 'Payments', path: '/payments' },
     { name: 'Contact Us', path: '/contact-us' },
   ];
 
@@ -55,17 +55,37 @@ export default function Header() {
   return (
     <header className="w-full z-50">
       {/* Top Alert Bar */}
-      <div className="bg-navy text-white text-center py-2.5 px-4 text-xs md:text-sm font-medium tracking-wide border-b border-navy-light/20 relative z-50 flex flex-col md:flex-row items-center justify-center gap-1.5 md:gap-4">
-        <div className="flex items-center justify-center space-x-2">
+      {/* Desktop: two columns side by side */}
+      <div className="hidden md:flex bg-navy text-white py-2.5 px-4 text-sm font-medium tracking-wide border-b border-navy-light/20 relative z-50 items-center justify-center gap-4">
+        <div className="flex items-center space-x-2">
           <span className="bg-teal/20 text-teal-light px-2 py-0.5 rounded text-[9px] font-bold tracking-widest border border-teal/30">
             SEBI REGISTERED
           </span>
           <span className="font-semibold text-gray-200">We are SEBI registered Research Analysts (INH000009560)</span>
         </div>
-        <span className="hidden md:inline text-gray-500">|</span>
-        <div className="flex items-center justify-center">
+        <span className="text-gray-500">|</span>
+        <div className="flex items-center">
           <span className="inline-block animate-pulse mr-1.5 font-bold text-teal">⚠️ NOTICE:</span>
-          <span className="text-gray-300">We accept payments only in our registered bank accounts & UPI handle updated on the website.</span>
+          <span className="text-gray-300">We accept payments only in our registered bank accounts &amp; UPI handle updated on the website.</span>
+        </div>
+      </div>
+
+      {/* Mobile: scrolling marquee ticker */}
+      <div className="md:hidden bg-navy text-white py-2 overflow-hidden relative z-50 border-b border-navy-light/20">
+        <div className="flex items-center whitespace-nowrap animate-marquee">
+          <span className="bg-teal/20 text-teal-light px-2 py-0.5 rounded text-[9px] font-bold tracking-widest border border-teal/30 mr-2 flex-shrink-0">
+            SEBI REGISTERED
+          </span>
+          <span className="text-xs font-semibold text-gray-200 mr-6">We are SEBI registered Research Analysts (INH000009560)</span>
+          <span className="text-teal text-xs font-bold mr-1.5 flex-shrink-0">⚠️ NOTICE:</span>
+          <span className="text-xs text-gray-300 mr-12">We accept payments only in our registered bank accounts &amp; UPI handle updated on the website.</span>
+          {/* Duplicate for seamless loop */}
+          <span className="bg-teal/20 text-teal-light px-2 py-0.5 rounded text-[9px] font-bold tracking-widest border border-teal/30 mr-2 flex-shrink-0">
+            SEBI REGISTERED
+          </span>
+          <span className="text-xs font-semibold text-gray-200 mr-6">We are SEBI registered Research Analysts (INH000009560)</span>
+          <span className="text-teal text-xs font-bold mr-1.5 flex-shrink-0">⚠️ NOTICE:</span>
+          <span className="text-xs text-gray-300 mr-12">We accept payments only in our registered bank accounts &amp; UPI handle updated on the website.</span>
         </div>
       </div>
 
@@ -80,16 +100,8 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="flex items-center space-x-2 group">
-              <Award className="h-8 w-8 text-gold transition-transform duration-300 group-hover:rotate-12" />
-              <div className="flex flex-col">
-                <span className="text-xl md:text-2xl font-bold font-poppins text-navy tracking-tight">
-                  PRIME STOCK
-                </span>
-                <span className="text-[10px] uppercase font-bold tracking-widest text-gold -mt-1.5">
-                  Research Analyst
-                </span>
-              </div>
+            <Link href="/" className="flex items-center group">
+              <Logo className="h-9 md:h-10 text-navy" />
             </Link>
 
             {/* Desktop Navigation */}

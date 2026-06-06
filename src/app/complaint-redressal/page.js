@@ -12,7 +12,7 @@ export default function ComplaintRedressalPage() {
       level: 'Level 1: Support Desk',
       contact: 'Customer Support Team',
       email: 'info@primestockresearch.com',
-      phone: '+91-9999999999',
+      phone: '+91-9104129341',
       timeline: 'Response within 24-48 business hours',
       desc: 'Most queries, execution issues, and basic complaints are resolved here immediately.',
     },
@@ -20,7 +20,7 @@ export default function ComplaintRedressalPage() {
       level: 'Level 2: Compliance Officer',
       contact: 'Mr. Akash Anand (Compliance Officer)',
       email: 'compliance@primestockresearch.com',
-      phone: '+91-9999999999',
+      phone: '+91-9104129341',
       timeline: 'Resolution within 7 working days',
       desc: 'If Level 1 support is unsatisfied, escalate your query directly to our compliance desk.',
     },
@@ -28,7 +28,7 @@ export default function ComplaintRedressalPage() {
       level: 'Level 3: Principal Officer',
       contact: 'Mr. Rahul Mehta (Principal Officer)',
       email: 'principal@primestockresearch.com',
-      phone: '+91-9999999998',
+      phone: '+91-9104129341',
       timeline: 'Resolution within 5 working days',
       desc: 'If Level 2 remains unresolved or requires executive review, escalate to the Principal Officer.',
     },
@@ -119,22 +119,11 @@ export default function ComplaintRedressalPage() {
               <span>Registered Compliance Officer details</span>
             </h3>
             <hr className="border-gray-200" />
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-              <div className="space-y-3">
-                <p><strong className="text-navy">Name:</strong> Mr. Akash Anand</p>
-                <p><strong className="text-navy">Designation:</strong> Compliance Officer</p>
-                <p><strong className="text-navy">Email:</strong> compliance@primestockresearch.com</p>
-                <p><strong className="text-navy">Phone:</strong> +91-9999999999</p>
-              </div>
-              <div className="space-y-3">
-                <div className="flex items-start space-x-2">
-                  <MapPin className="h-5 w-5 text-teal shrink-0 mt-0.5" />
-                  <p className="text-xs leading-relaxed text-gray-500">
-                    <strong className="text-navy block text-sm mb-0.5">Address:</strong>
-                    Correspondence details to be updated (Mumbai, Maharashtra)
-                  </p>
-                </div>
-              </div>
+            <div className="text-sm space-y-3">
+              <p><strong className="text-navy">Name:</strong> Mr. Akash Anand</p>
+              <p><strong className="text-navy">Designation:</strong> Compliance Officer</p>
+              <p><strong className="text-navy">Email:</strong> compliance@primestockresearch.com</p>
+              <p><strong className="text-navy">Phone:</strong> +91-9104129341</p>
             </div>
           </div>
 

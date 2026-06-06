@@ -70,8 +70,7 @@ export default function ContactUsPage() {
                       Helpline Numbers
                     </h4>
                     <div className="flex flex-col text-sm text-teal font-semibold">
-                      <a href="tel:+919999999999" className="hover:underline">+91-9999999999</a>
-                      <a href="tel:+919999999998" className="hover:underline">+91-9999999998</a>
+                      <a href="tel:+919104129341" className="hover:underline">+91-9104129341</a>
                     </div>
                   </div>
                 </div>

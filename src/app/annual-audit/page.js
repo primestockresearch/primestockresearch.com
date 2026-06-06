@@ -7,29 +7,7 @@ export const metadata = {
 };
 
 export default function AnnualAuditPage() {
-  const auditRecords = [
-    {
-      fy: 'FY 2024-25',
-      status: 'Completed',
-      auditor: 'M/S J. K. Shah & Co. (Chartered Accountants)',
-      date: 'September 24, 2025',
-      remarks: 'Fully Compliant. No material adverse findings.',
-    },
-    {
-      fy: 'FY 2023-24',
-      status: 'Completed',
-      auditor: 'M/S J. K. Shah & Co. (Chartered Accountants)',
-      date: 'September 18, 2024',
-      remarks: 'Fully Compliant. Operations found satisfactory.',
-    },
-    {
-      fy: 'FY 2022-23',
-      status: 'Completed',
-      auditor: 'R. K. Agarwal & Associates (Chartered Accountants)',
-      date: 'October 10, 2023',
-      remarks: 'Completed. Advisory call registers and disclosures checked.',
-    },
-  ];
+  const auditRecords = [];
 
   return (
     <div className="w-full bg-white">
@@ -78,20 +56,28 @@ export default function AnnualAuditPage() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100 text-gray-500 font-medium">
-                  {auditRecords.map((record, i) => (
-                    <tr key={i} className="hover:bg-gray-50/40">
-                      <td className="p-4.5 pl-6 text-navy font-semibold">{record.fy}</td>
-                      <td className="p-4.5">
-                        <span className="inline-flex items-center space-x-1 bg-green-50 text-green-700 border border-green-200 px-2.5 py-1 rounded text-xs font-bold">
-                          <FileCheck className="h-3.5 w-3.5" />
-                          <span>{record.status}</span>
-                        </span>
+                  {auditRecords.length === 0 ? (
+                    <tr>
+                      <td colSpan="5" className="p-8 text-center text-gray-400 italic">
+                        Audit records will be updated here soon.
                       </td>
-                      <td className="p-4.5 text-navy font-semibold">{record.auditor}</td>
-                      <td className="p-4.5">{record.date}</td>
-                      <td className="p-4.5 pr-6 text-xs">{record.remarks}</td>
                     </tr>
-                  ))}
+                  ) : (
+                    auditRecords.map((record, i) => (
+                      <tr key={i} className="hover:bg-gray-50/40">
+                        <td className="p-4.5 pl-6 text-navy font-semibold">{record.fy}</td>
+                        <td className="p-4.5">
+                          <span className="inline-flex items-center space-x-1 bg-green-50 text-green-700 border border-green-200 px-2.5 py-1 rounded text-xs font-bold">
+                            <FileCheck className="h-3.5 w-3.5" />
+                            <span>{record.status}</span>
+                          </span>
+                        </td>
+                        <td className="p-4.5 text-navy font-semibold">{record.auditor}</td>
+                        <td className="p-4.5">{record.date}</td>
+                        <td className="p-4.5 pr-6 text-xs">{record.remarks}</td>
+                      </tr>
+                    ))
+                  )}
                 </tbody>
               </table>
             </div>

@@ -1,8 +1,7 @@
 import { MessageCircle } from 'lucide-react';
 
 export default function WhatsAppButton() {
-  // Use placeholder WhatsApp number as per prompt instructions
-  const whatsappUrl = 'https://wa.me/919999999999';
+  const whatsappUrl = 'https://wa.me/919104129341';
 
   return (
     <a

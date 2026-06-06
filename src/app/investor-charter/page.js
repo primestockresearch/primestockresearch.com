@@ -149,7 +149,7 @@ export default function InvestorCharterPage() {
                 <a href="mailto:info@primestockresearch.com" className="text-gold font-semibold hover:underline">
                   info@primestockresearch.com
                 </a>{' '}
-                or call us at +91-9999999999.
+                or call us at +91-9104129341.
               </li>
               <li>
                 <strong>Step 2: Escalate to Compliance</strong> - If unsatisfied, email our designated Compliance Officer (details on the Complaint Redressal page).

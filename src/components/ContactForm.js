@@ -55,33 +55,6 @@ export default function ContactForm() {
           )}
         </div>
 
-        {/* Email Field */}
-        <div>
-          <label htmlFor="email" className="block text-xs font-semibold text-navy uppercase tracking-wider mb-1.5">
-            Email Address
-          </label>
-          <input
-            id="email"
-            type="email"
-            placeholder="Enter your email"
-            {...register('email', { 
-              required: 'Email address is required',
-              pattern: {
-                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                message: 'Please enter a valid email address'
-              }
-            })}
-            className={`w-full px-4 py-2.5 rounded border text-sm focus:outline-none focus:ring-1 ${
-              errors.email 
-                ? 'border-red-500 focus:border-red-500 focus:ring-red-500' 
-                : 'border-gray-200 focus:border-navy focus:ring-navy'
-            }`}
-          />
-          {errors.email && (
-            <p className="text-xs text-red-500 mt-1 font-medium">{errors.email.message}</p>
-          )}
-        </div>
-
         {/* Mobile Field */}
         <div>
           <label htmlFor="mobile" className="block text-xs font-semibold text-navy uppercase tracking-wider mb-1.5">
@@ -111,6 +84,33 @@ export default function ContactForm() {
           </div>
           {errors.mobile && (
             <p className="text-xs text-red-500 mt-1 font-medium">{errors.mobile.message}</p>
+          )}
+        </div>
+
+        {/* Email Field */}
+        <div>
+          <label htmlFor="email" className="block text-xs font-semibold text-navy uppercase tracking-wider mb-1.5">
+            Email Address
+          </label>
+          <input
+            id="email"
+            type="email"
+            placeholder="Enter your email"
+            {...register('email', { 
+              required: 'Email address is required',
+              pattern: {
+                value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                message: 'Please enter a valid email address'
+              }
+            })}
+            className={`w-full px-4 py-2.5 rounded border text-sm focus:outline-none focus:ring-1 ${
+              errors.email 
+                ? 'border-red-500 focus:border-red-500 focus:ring-red-500' 
+                : 'border-gray-200 focus:border-navy focus:ring-navy'
+            }`}
+          />
+          {errors.email && (
+            <p className="text-xs text-red-500 mt-1 font-medium">{errors.email.message}</p>
           )}
         </div>
 

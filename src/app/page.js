@@ -359,8 +359,8 @@ export default function HomePage() {
                     <h4 className="font-bold text-navy font-poppins text-sm uppercase tracking-wider mb-1">
                       Call Support
                     </h4>
-                    <a href="tel:+919999999999" className="text-sm text-teal font-semibold hover:underline">
-                      +91-9999999999
+                    <a href="tel:+919104129341" className="text-sm text-teal font-semibold hover:underline">
+                      +91-9104129341
                     </a>
                   </div>
                 </div>
@@ -368,7 +368,7 @@ export default function HomePage() {
 
               {/* Regulatory Notice */}
               <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 text-xs text-amber-800 leading-relaxed">
-                <span className="font-bold">Notice:</span> We strictly advise clients to never deposit funds into any individual bank account. All official invoice payments are received only in our registered Corporate Bank Accounts listed on our Payments Page.
+                <span className="font-bold">Notice:</span> We strictly advise clients to never deposit funds into any individual bank account. All official invoice payments are received only in our registered Corporate Bank Accounts.
               </div>
             </div>
 

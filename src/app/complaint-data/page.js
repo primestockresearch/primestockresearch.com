@@ -55,8 +55,6 @@ export default function ComplaintDataPage() {
   ];
 
   const annualTrendData = [
-    { year: '2023-24', carriedForward: 0, received: 0, resolved: 0, pending: 0 },
-    { year: '2024-25', carriedForward: 0, received: 0, resolved: 0, pending: 0 },
     { year: '2025-26', carriedForward: 0, received: 0, resolved: 0, pending: 0 },
   ];
 

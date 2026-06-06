@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { Award, Mail, Phone, ExternalLink } from 'lucide-react';
+import { Mail, Phone, ExternalLink } from 'lucide-react';
+import Logo from './Logo';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,17 +12,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Brand & Registration */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2 text-white">
-              <Award className="h-8 w-8 text-teal" />
-              <div className="flex flex-col">
-                <span className="text-xl font-bold font-poppins tracking-tight">
-                  PRIME STOCK
-                </span>
-                <span className="text-[10px] uppercase font-bold tracking-widest text-teal -mt-1.5">
-                  Research Analyst
-                </span>
-              </div>
-            </div>
+            <Link href="/" className="flex items-center group">
+              <Logo className="h-9 text-white" dark={true} />
+            </Link>
             <p className="text-sm text-gray-400 leading-relaxed">
               Prime Stock Research is a SEBI Registered Research Analyst providing premium equity research and stock advisory services.
             </p>
@@ -47,9 +40,6 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/services" className="hover:text-teal transition-colors duration-150">Our Services</Link>
-              </li>
-              <li>
-                <Link href="/payments" className="hover:text-teal transition-colors duration-150">Payments & Bank Details</Link>
               </li>
               <li>
                 <Link href="/refund-policy" className="hover:text-teal transition-colors duration-150">Refund Policy</Link>
@@ -114,8 +104,8 @@ export default function Footer() {
               </li>
               <li className="flex items-center space-x-2.5">
                 <Phone className="h-4 w-4 text-teal" />
-                <a href="tel:+919999999999" className="hover:text-teal">
-                  +91-9999999999
+                <a href="tel:+919104129341" className="hover:text-teal">
+                  +91-9104129341
                 </a>
               </li>
             </ul>
@@ -152,9 +142,6 @@ export default function Footer() {
           {/* Bottom Copyright bar */}
           <div className="flex flex-col md:flex-row items-center justify-between pt-6 border-t border-navy-light/10 text-[11px] text-gray-500">
             <p>© {currentYear} Prime Stock Research. All Rights Reserved.</p>
-            <p className="mt-2 md:mt-0">
-              Developed in compliance with SEBI Research Analyst Regulations, 2014.
-            </p>
           </div>
         </div>
       </div>

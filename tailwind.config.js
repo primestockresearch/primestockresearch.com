@@ -33,6 +33,15 @@ module.exports = {
         sans: ['var(--font-inter)', 'sans-serif'],
         poppins: ['var(--font-poppins)', 'sans-serif'],
       },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+      },
+      animation: {
+        marquee: 'marquee 20s linear infinite',
+      },
     },
   },
   plugins: [],
