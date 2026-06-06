@@ -93,7 +93,7 @@ export default function ContactUsPage() {
             </div>
 
             {/* Right Column: Callback form */}
-            <div className="lg:col-span-7">
+            <div id="contact-section" className="lg:col-span-7 scroll-mt-24">
               <ContactForm />
             </div>
 

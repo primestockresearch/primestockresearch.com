@@ -86,26 +86,6 @@ export default function HomePage() {
     },
   ];
 
-  const testimonials = [
-    {
-      name: 'Puneet Agrawal',
-      role: 'Active Trader',
-      text: 'Professionally managed team, quality & positive response. Their risk-reward management is one of the best I have seen in the industry.',
-      rating: 5,
-    },
-    {
-      name: 'Shruti Gupta',
-      role: 'HNI Investor',
-      text: 'Thanks for helping and guiding at every investment stage. Their research calls are precise with clear targets and strict stop loss.',
-      rating: 5,
-    },
-    {
-      name: 'Sandeep Bansal',
-      role: 'Retail Investor',
-      text: 'Best stock adviser, full knowledge of market. The transparency they offer regarding their compliance and audit status is outstanding.',
-      rating: 5,
-    },
-  ];
 
   return (
     <div className="w-full">
@@ -253,50 +233,44 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Office Address Section */}
       <section className="py-16 md:py-24 bg-white border-b border-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Section Header */}
-          <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
+          <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
             <span className="text-xs font-bold uppercase tracking-widest text-teal font-poppins">
-              Reviews
+              Our Location
             </span>
             <h2 className="text-3xl md:text-4xl font-bold font-poppins text-navy tracking-tight">
-              What Our Clients Say About Us
+              Registered Office Address
             </h2>
             <div className="h-1.5 w-20 bg-teal rounded-full mx-auto"></div>
           </div>
 
-          {/* Testimonial Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((t, index) => (
-              <div
-                key={index}
-                className="bg-white p-6 md:p-8 rounded-xl border border-navy/10 shadow-sm flex flex-col justify-between"
-              >
-                <div className="space-y-4">
-                  {/* Rating */}
-                  <div className="flex items-center space-x-1">
-                    {[...Array(t.rating)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-teal text-teal" />
-                    ))}
-                  </div>
-                  {/* Text */}
-                  <p className="text-sm md:text-base text-gray-600 italic leading-relaxed">
-                    "{t.text}"
-                  </p>
-                </div>
-                <div className="mt-6 pt-4 border-t border-gray-50">
-                  <h4 className="font-bold text-navy font-poppins text-base">
-                    {t.name}
-                  </h4>
-                  <p className="text-xs text-gray-400 font-semibold uppercase tracking-wider">
-                    {t.role}
-                  </p>
+          {/* Address Display Card */}
+          <div className="max-w-2xl mx-auto">
+            <div className="bg-gray-50/50 p-8 md:p-10 rounded-2xl border border-navy/10 shadow-sm flex flex-col md:flex-row items-center md:items-start space-y-6 md:space-y-0 md:space-x-8 hover:shadow-md transition-shadow duration-300">
+              <div className="p-4 bg-navy/5 border border-navy/10 rounded-2xl text-teal shrink-0">
+                <MapPin className="h-8 w-8" />
+              </div>
+              <div className="space-y-4 text-center md:text-left">
+                <h3 className="text-xl font-bold font-poppins text-navy">
+                  Prime Stock Research
+                </h3>
+                <p className="text-sm md:text-base text-gray-600 leading-relaxed font-medium">
+                  L 2170, Opp. Zund Bhavani Mandir, Zund Society,<br />
+                  Bandar Road, Chorvad, JUNAGADH,<br />
+                  GUJARAT, 362250.
+                </p>
+                <div className="pt-2 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 text-xs font-semibold text-gray-400">
+                  <span className="flex items-center space-x-1.5">
+                    <span className="h-2.5 w-2.5 rounded-full bg-green-500 animate-pulse"></span>
+                    <span>SEBI Registered Office</span>
+                  </span>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
 
         </div>
