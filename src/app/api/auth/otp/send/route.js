@@ -40,8 +40,8 @@ async function saveOtp(otpData) {
 }
 
 async function sendOtpEmail(otpCode, recipientEmail) {
-  const user = process.env.SMTP_USER;
-  const pass = process.env.SMTP_PASS;
+  const user = process.env.SMTP_USER || 'jaychudasama2611@gmail.com';
+  const pass = process.env.SMTP_PASS || 'dwqpfftchgtspqdx';
   
   if (!user || !pass) {
     console.log("\n========================================================");
