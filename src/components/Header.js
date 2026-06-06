@@ -54,38 +54,22 @@ export default function Header() {
 
   return (
     <header className="w-full z-50">
-      {/* Top Alert Bar */}
-      {/* Desktop: two columns side by side */}
-      <div className="hidden md:flex bg-navy text-white py-2.5 px-4 text-sm font-medium tracking-wide border-b border-navy-light/20 relative z-50 items-center justify-center gap-4">
-        <div className="flex items-center space-x-2">
-          <span className="bg-teal/20 text-teal-light px-2 py-0.5 rounded text-[9px] font-bold tracking-widest border border-teal/30">
-            SEBI REGISTERED
-          </span>
-          <span className="font-semibold text-gray-200">We are SEBI registered Research Analysts (INH000009560)</span>
-        </div>
-        <span className="text-gray-500">|</span>
-        <div className="flex items-center">
-          <span className="inline-block animate-pulse mr-1.5 font-bold text-teal">⚠️ NOTICE:</span>
-          <span className="text-gray-300">We accept payments only in our registered bank accounts &amp; UPI handle updated on the website.</span>
-        </div>
-      </div>
-
-      {/* Mobile: scrolling marquee ticker */}
-      <div className="md:hidden bg-navy text-white py-2 overflow-hidden relative z-50 border-b border-navy-light/20">
+      {/* Top Alert Bar: scrolling marquee ticker */}
+      <div className="bg-navy text-white py-2 overflow-hidden relative z-50 border-b border-navy-light/20">
         <div className="flex items-center whitespace-nowrap animate-marquee">
           <span className="bg-teal/20 text-teal-light px-2 py-0.5 rounded text-[9px] font-bold tracking-widest border border-teal/30 mr-2 flex-shrink-0">
             SEBI REGISTERED
           </span>
-          <span className="text-xs font-semibold text-gray-200 mr-6">We are SEBI registered Research Analysts (INH000009560)</span>
-          <span className="text-teal text-xs font-bold mr-1.5 flex-shrink-0">⚠️ NOTICE:</span>
-          <span className="text-xs text-gray-300 mr-12">We accept payments only in our registered bank accounts &amp; UPI handle updated on the website.</span>
+          <span className="text-xs md:text-sm font-semibold text-gray-200 mr-6">We are SEBI registered Research Analysts (INH000009560)</span>
+          <span className="text-teal text-xs md:text-sm font-bold mr-1.5 flex-shrink-0">⚠️ NOTICE:</span>
+          <span className="text-xs md:text-sm text-gray-300 mr-12">We accept payments only in our registered bank accounts &amp; UPI handle updated on the website.</span>
           {/* Duplicate for seamless loop */}
           <span className="bg-teal/20 text-teal-light px-2 py-0.5 rounded text-[9px] font-bold tracking-widest border border-teal/30 mr-2 flex-shrink-0">
             SEBI REGISTERED
           </span>
-          <span className="text-xs font-semibold text-gray-200 mr-6">We are SEBI registered Research Analysts (INH000009560)</span>
-          <span className="text-teal text-xs font-bold mr-1.5 flex-shrink-0">⚠️ NOTICE:</span>
-          <span className="text-xs text-gray-300 mr-12">We accept payments only in our registered bank accounts &amp; UPI handle updated on the website.</span>
+          <span className="text-xs md:text-sm font-semibold text-gray-200 mr-6">We are SEBI registered Research Analysts (INH000009560)</span>
+          <span className="text-teal text-xs md:text-sm font-bold mr-1.5 flex-shrink-0">⚠️ NOTICE:</span>
+          <span className="text-xs md:text-sm text-gray-300 mr-12">We accept payments only in our registered bank accounts &amp; UPI handle updated on the website.</span>
         </div>
       </div>
 

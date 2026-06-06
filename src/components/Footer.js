@@ -65,28 +65,7 @@ export default function Footer() {
               <li>
                 <Link href="/annual-audit" className="hover:text-teal transition-colors duration-150">Annual Audit Status</Link>
               </li>
-              <li>
-                <a 
-                  href="https://scores.gov.in/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="flex items-center space-x-1 hover:text-teal transition-colors duration-150 group"
-                >
-                  <span>SEBI SCORES Portal</span>
-                  <ExternalLink className="h-3 w-3 opacity-60 group-hover:opacity-100 transition-opacity" />
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="https://smartodr.in/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="flex items-center space-x-1 hover:text-teal transition-colors duration-150 group"
-                >
-                  <span>SMART ODR Portal</span>
-                  <ExternalLink className="h-3 w-3 opacity-60 group-hover:opacity-100 transition-opacity" />
-                </a>
-              </li>
+
             </ul>
           </div>
 

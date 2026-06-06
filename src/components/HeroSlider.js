@@ -53,7 +53,7 @@ export default function HeroSlider() {
   };
 
   return (
-    <section className="relative w-full h-[500px] md:h-[600px] overflow-hidden bg-white border-b border-gray-100 flex items-center">
+    <section className="relative w-full h-[380px] md:h-[450px] overflow-hidden bg-white border-b border-gray-100">
       
       {/* Light Abstract Financial Chart Background (SVG Grid) */}
       <div className="absolute inset-0 z-0 opacity-40 pointer-events-none select-none">
@@ -83,19 +83,19 @@ export default function HeroSlider() {
       </div>
 
       {/* Slide Content wrapper */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
-        <div className="max-w-3xl">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full relative z-10 flex items-center">
+        <div className="relative w-full h-full max-w-3xl">
           {slides.map((slide, index) => (
             <div
               key={index}
-              className={`transition-all duration-700 ease-in-out absolute inset-x-4 sm:inset-x-6 lg:inset-x-8 top-1/2 -translate-y-1/2 flex flex-col items-start ${
+              className={`transition-all duration-700 ease-in-out absolute inset-y-0 left-0 right-0 flex flex-col justify-center items-start ${
                 currentSlide === index
-                  ? 'opacity-100 translate-y-[-50%] pointer-events-auto'
-                  : 'opacity-0 translate-y-[-40%] pointer-events-none'
+                  ? 'opacity-100 translate-y-0 pointer-events-auto'
+                  : 'opacity-0 translate-y-4 pointer-events-none'
               }`}
             >
               {/* Badge */}
-              <div className="flex items-center space-x-2 bg-navy/5 border border-navy/10 rounded-full py-1.5 px-4 mb-4">
+              <div className="flex items-center space-x-2 bg-navy/5 border border-navy/10 rounded-full py-1.5 px-4 mb-3">
                 {slide.icon}
                 <span className="text-xs font-bold text-navy tracking-wider uppercase font-poppins">
                   {slide.badge}
@@ -103,22 +103,22 @@ export default function HeroSlider() {
               </div>
 
               {/* Headings */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-poppins text-navy leading-tight tracking-tight mb-2">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold font-poppins text-navy leading-tight tracking-tight mb-1">
                 {slide.title}
               </h1>
-              <h2 className="text-xl sm:text-2xl font-semibold font-poppins text-gold mb-4">
+              <h2 className="text-lg sm:text-xl font-semibold font-poppins text-gold mb-3">
                 {slide.subtitle}
               </h2>
 
               {/* Description */}
-              <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed mb-8 max-w-2xl">
+              <p className="text-xs sm:text-sm md:text-base text-gray-600 leading-relaxed mb-6 max-w-2xl">
                 {slide.description}
               </p>
 
               {/* CTA Button */}
               <button
                 onClick={scrollToContact}
-                className="bg-navy hover:bg-navy-light text-white font-bold px-8 py-3.5 rounded transition-all duration-300 shadow-md hover:shadow-lg border border-transparent hover:border-gold hover:text-gold text-sm md:text-base group"
+                className="bg-navy hover:bg-navy-light text-white font-bold px-6 py-2.5 rounded transition-all duration-300 shadow-md hover:shadow-lg border border-transparent hover:border-gold hover:text-gold text-xs sm:text-sm group"
               >
                 Contact Us Now
               </button>
