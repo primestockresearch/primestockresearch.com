@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Mail, Phone, Clock } from 'lucide-react';
+import { Mail, Phone, Clock, MapPin } from 'lucide-react';
 import ContactForm from '@/components/ContactForm';
 
 export const metadata = {
@@ -72,6 +72,22 @@ export default function ContactUsPage() {
                     <div className="flex flex-col text-sm text-teal font-semibold">
                       <a href="tel:+919104129341" className="hover:underline">+91-9104129341</a>
                     </div>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="p-3 bg-navy/5 border border-navy/10 rounded-full text-navy shrink-0">
+                    <MapPin className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-navy font-poppins text-sm uppercase tracking-wider mb-1">
+                      Office Address
+                    </h4>
+                    <p className="text-sm text-gray-600 leading-relaxed font-semibold">
+                      L 2170, Opp. Zund Bhavani Mandir, Zund Society,<br />
+                      Bandar Road, Chorvad, JUNAGADH,<br />
+                      GUJARAT, 362250.
+                    </p>
                   </div>
                 </div>
 

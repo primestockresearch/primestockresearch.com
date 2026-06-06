@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Mail, Phone, ExternalLink } from 'lucide-react';
+import { Mail, Phone, ExternalLink, MapPin } from 'lucide-react';
 import Logo from './Logo';
 
 export default function Footer() {
@@ -107,6 +107,14 @@ export default function Footer() {
                 <a href="tel:+919104129341" className="hover:text-teal">
                   +91-9104129341
                 </a>
+              </li>
+              <li className="flex items-start space-x-2.5">
+                <MapPin className="h-4 w-4 text-teal shrink-0 mt-1" />
+                <span className="text-gray-400 leading-relaxed text-xs">
+                  L 2170, Opp. Zund Bhavani Mandir, Zund Society,<br />
+                  Bandar Road, Chorvad, JUNAGADH,<br />
+                  GUJARAT, 362250.
+                </span>
               </li>
             </ul>
           </div>
