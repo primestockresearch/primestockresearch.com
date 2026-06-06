@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 const filePath = path.join(process.cwd(), 'src/data/complaints.json');
+const authFilePath = path.join(process.cwd(), 'src/data/auth.json');
 
 // Default fallback data
 const defaultData = {
@@ -98,6 +99,36 @@ async function savePersistedData(data) {
   }
 }
 
+async function readSession() {
+  if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
+    try {
+      const res = await fetch(`${process.env.KV_REST_API_URL}/get/admin_session`, {
+        headers: {
+          Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`
+        },
+        cache: 'no-store'
+      });
+      if (res.ok) {
+        const json = await res.json();
+        if (json.result) return JSON.parse(json.result);
+      }
+    } catch (e) {
+      console.error("Vercel KV get session error:", e);
+    }
+  }
+
+  try {
+    if (fs.existsSync(authFilePath)) {
+      const fileContent = fs.readFileSync(authFilePath, 'utf8');
+      const json = JSON.parse(fileContent);
+      return json.session;
+    }
+  } catch (e) {
+    console.error("Local file get session error:", e);
+  }
+  return null;
+}
+
 export async function GET() {
   const data = await getPersistedData();
   return NextResponse.json(data);
@@ -107,12 +138,17 @@ export async function POST(request) {
   try {
     const body = await request.json();
     
-    // Auth check
+    // Auth check using dynamic session token
     const authHeader = request.headers.get('Authorization');
-    const expectedPassword = process.env.ADMIN_PASSWORD || 'prime2026';
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return NextResponse.json({ error: 'Unauthorized: Missing session token' }, { status: 401 });
+    }
     
-    if (authHeader !== `Bearer ${expectedPassword}`) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    const token = authHeader.substring(7);
+    const session = await readSession();
+
+    if (!session || session.token !== token || Date.now() > session.expires) {
+      return NextResponse.json({ error: 'Session expired or invalid. Please login again.' }, { status: 401 });
     }
 
     const success = await savePersistedData(body);

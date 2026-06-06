@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { 
   Lock, 
   Unlock, 
@@ -13,13 +12,19 @@ import {
   FileSpreadsheet,
   LogOut,
   CheckCircle,
-  AlertCircle
+  AlertCircle,
+  Mail,
+  KeyRound
 } from 'lucide-react';
 
 export default function AdminComplaintsPage() {
-  const [password, setPassword] = useState('');
+  const [email] = useState('jaychudasama2611@gmail.com');
+  const [otpCode, setOtpCode] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [otpSent, setOtpSent] = useState(false);
+  
   const [loginError, setLoginError] = useState('');
+  const [otpMessage, setOtpMessage] = useState('');
   
   const [currentMonthName, setCurrentMonthName] = useState('May 2026');
   const [currentMonthData, setCurrentMonthData] = useState([]);
@@ -27,6 +32,8 @@ export default function AdminComplaintsPage() {
   const [annualTrendData, setAnnualTrendData] = useState([]);
 
   const [isLoading, setIsLoading] = useState(true);
+  const [isSendingOtp, setIsSendingOtp] = useState(false);
+  const [isVerifying, setIsVerifying] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [saveStatus, setSaveStatus] = useState(null); // { type: 'success'|'error', message: '' }
 
@@ -44,13 +51,19 @@ export default function AdminComplaintsPage() {
   const fetchData = async (token) => {
     setIsLoading(true);
     try {
-      const res = await fetch('/api/complaints');
+      const res = await fetch('/api/complaints', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
       if (res.ok) {
         const json = await res.json();
         setCurrentMonthName(json.currentMonthName || '');
         setCurrentMonthData(json.currentMonthData || []);
         setMonthlyTrendData(json.monthlyTrendData || []);
         setAnnualTrendData(json.annualTrendData || []);
+      } else {
+        handleLogout();
       }
     } catch (e) {
       console.error('Failed to fetch data', e);
@@ -59,45 +72,76 @@ export default function AdminComplaintsPage() {
     }
   };
 
-  const handleLogin = (e) => {
+  const handleSendOtp = async (e) => {
+    if (e) e.preventDefault();
+    setIsSendingOtp(true);
+    setLoginError('');
+    setOtpMessage('');
+
+    try {
+      const res = await fetch('/api/auth/otp/send', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email })
+      });
+
+      const json = await res.json();
+      if (res.ok) {
+        setOtpSent(true);
+        setOtpMessage(json.message || 'OTP code sent. Please check your email.');
+      } else {
+        setLoginError(json.error || 'Failed to send OTP code.');
+      }
+    } catch (err) {
+      setLoginError('SMTP transmission failed. Contact local administrator.');
+    } finally {
+      setIsSendingOtp(false);
+    }
+  };
+
+  const handleVerifyOtp = async (e) => {
     e.preventDefault();
-    if (!password) {
-      setLoginError('Password is required');
+    if (!otpCode || otpCode.length !== 6) {
+      setLoginError('Enter a valid 6-digit OTP code.');
       return;
     }
-    
-    // Test the password against API
-    setIsLoading(true);
-    fetch('/api/complaints', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${password}`
-      },
-      body: JSON.stringify({}) // Send empty object just to check auth
-    })
-    .then(res => {
-      if (res.status === 401) {
-        setLoginError('Incorrect password');
-        setIsLoading(false);
-      } else {
-        // Any status other than 401 means password was accepted (400 is expected for empty body but auth passed)
-        localStorage.setItem('complaints_admin_token', password);
+
+    setIsVerifying(true);
+    setLoginError('');
+
+    try {
+      const res = await fetch('/api/auth/otp/verify', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ code: otpCode })
+      });
+
+      const json = await res.json();
+      if (res.ok) {
+        localStorage.setItem('complaints_admin_token', json.token);
         setIsLoggedIn(true);
-        setLoginError('');
-        fetchData(password);
+        setOtpSent(false);
+        setOtpCode('');
+        fetchData(json.token);
+      } else {
+        setLoginError(json.error || 'Verification code invalid.');
       }
-    })
-    .catch(err => {
-      setLoginError('Failed to communicate with API');
-      setIsLoading(false);
-    });
+    } catch (err) {
+      setLoginError('Authentication verification call failed.');
+    } finally {
+      setIsVerifying(false);
+    }
   };
 
   const handleLogout = () => {
     localStorage.removeItem('complaints_admin_token');
     setIsLoggedIn(false);
-    setPassword('');
+    setOtpSent(false);
+    setOtpCode('');
   };
 
   const handleSave = async () => {
@@ -138,14 +182,12 @@ export default function AdminComplaintsPage() {
     }
   };
 
-  // Helper: Update a field in the current month row
   const updateCurrentMonthRow = (index, field, value) => {
     const updated = [...currentMonthData];
     updated[index][field] = value;
     setCurrentMonthData(updated);
   };
 
-  // Helper: Add row to monthly trend
   const addMonthlyTrendRow = () => {
     setMonthlyTrendData([
       ...monthlyTrendData,
@@ -153,20 +195,17 @@ export default function AdminComplaintsPage() {
     ]);
   };
 
-  // Helper: Update monthly trend field
   const updateMonthlyTrendRow = (index, field, value) => {
     const updated = [...monthlyTrendData];
     updated[index][field] = value;
     setMonthlyTrendData(updated);
   };
 
-  // Helper: Delete monthly trend row
   const deleteMonthlyTrendRow = (index) => {
     const updated = monthlyTrendData.filter((_, i) => i !== index);
     setMonthlyTrendData(updated);
   };
 
-  // Helper: Add row to annual trend
   const addAnnualTrendRow = () => {
     setAnnualTrendData([
       ...annualTrendData,
@@ -174,14 +213,12 @@ export default function AdminComplaintsPage() {
     ]);
   };
 
-  // Helper: Update annual trend field
   const updateAnnualTrendRow = (index, field, value) => {
     const updated = [...annualTrendData];
     updated[index][field] = value;
     setAnnualTrendData(updated);
   };
 
-  // Helper: Delete annual trend row
   const deleteAnnualTrendRow = (index) => {
     const updated = annualTrendData.filter((_, i) => i !== index);
     setAnnualTrendData(updated);
@@ -196,44 +233,106 @@ export default function AdminComplaintsPage() {
               <Lock className="h-6 w-6 text-teal" />
             </div>
             <h2 className="mt-4 text-2xl font-bold font-poppins text-navy">
-              Admin Gateway
+              Compliance Portal Access
             </h2>
             <p className="mt-2 text-sm text-gray-500">
-              Enter your access credentials to modify SEBI Complaint Disclosures.
+              Authentication required to edit official complaint records.
             </p>
           </div>
 
-          <form className="mt-6 space-y-6" onSubmit={handleLogin}>
-            <div>
-              <label htmlFor="pass" className="block text-xs font-semibold text-navy uppercase tracking-wider mb-2">
-                Compliance Password
-              </label>
-              <input
-                id="pass"
-                type="password"
-                required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="••••••••"
-                className="w-full px-4 py-2.5 rounded border border-gray-200 focus:outline-none focus:border-navy focus:ring-1 focus:ring-navy text-sm font-medium"
-              />
-            </div>
-
-            {loginError && (
-              <div className="flex items-center space-x-2 text-xs text-red-600 bg-red-50 p-3 rounded border border-red-200">
-                <AlertCircle className="h-4 w-4 shrink-0" />
-                <span>{loginError}</span>
+          {!otpSent ? (
+            <form className="mt-6 space-y-6" onSubmit={handleSendOtp}>
+              <div>
+                <label className="block text-xs font-semibold text-navy uppercase tracking-wider mb-2">
+                  Admin Email (Authorized)
+                </label>
+                <div className="relative">
+                  <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+                    <Mail className="h-4.5 w-4.5" />
+                  </span>
+                  <input
+                    type="email"
+                    readOnly
+                    value={email}
+                    className="w-full pl-10 pr-4 py-2.5 rounded border border-gray-200 bg-gray-50 text-gray-500 font-medium text-sm focus:outline-none select-all cursor-not-allowed"
+                  />
+                </div>
               </div>
-            )}
 
-            <button
-              type="submit"
-              disabled={isLoading}
-              className="w-full py-3 px-4 border border-transparent rounded font-semibold text-white bg-navy hover:bg-navy-light text-sm transition-all duration-300 shadow-md flex items-center justify-center space-x-2 disabled:opacity-50"
-            >
-              <span>{isLoading ? 'Verifying...' : 'Sign In to Dashboard'}</span>
-            </button>
-          </form>
+              {loginError && (
+                <div className="flex items-center space-x-2 text-xs text-red-600 bg-red-50 p-3 rounded border border-red-200">
+                  <AlertCircle className="h-4 w-4 shrink-0" />
+                  <span>{loginError}</span>
+                </div>
+              )}
+
+              <button
+                type="submit"
+                disabled={isSendingOtp}
+                className="w-full py-3 px-4 border border-transparent rounded font-semibold text-white bg-navy hover:bg-navy-light text-sm transition-all duration-300 shadow-md flex items-center justify-center space-x-2 disabled:opacity-50"
+              >
+                <span>{isSendingOtp ? 'Sending OTP...' : 'Get One-Time Password'}</span>
+              </button>
+            </form>
+          ) : (
+            <form className="mt-6 space-y-6" onSubmit={handleVerifyOtp}>
+              <div>
+                <label htmlFor="otp" className="block text-xs font-semibold text-navy uppercase tracking-wider mb-2">
+                  Enter 6-Digit OTP Code
+                </label>
+                <div className="relative">
+                  <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400">
+                    <KeyRound className="h-4.5 w-4.5" />
+                  </span>
+                  <input
+                    id="otp"
+                    type="text"
+                    required
+                    maxLength="6"
+                    value={otpCode}
+                    onChange={(e) => setOtpCode(e.target.value.replace(/\D/g, ''))}
+                    placeholder="123456"
+                    className="w-full pl-10 pr-4 py-2.5 rounded border border-gray-200 focus:outline-none focus:border-navy text-sm font-semibold tracking-[0.3em] text-center text-navy"
+                  />
+                </div>
+              </div>
+
+              {otpMessage && (
+                <div className="flex items-center space-x-2 text-xs text-green-700 bg-green-50 p-3 rounded border border-green-200">
+                  <CheckCircle className="h-4 w-4 shrink-0" />
+                  <span>{otpMessage}</span>
+                </div>
+              )}
+
+              {loginError && (
+                <div className="flex items-center space-x-2 text-xs text-red-600 bg-red-50 p-3 rounded border border-red-200">
+                  <AlertCircle className="h-4 w-4 shrink-0" />
+                  <span>{loginError}</span>
+                </div>
+              )}
+
+              <div className="space-y-3">
+                <button
+                  type="submit"
+                  disabled={isVerifying}
+                  className="w-full py-3 px-4 border border-transparent rounded font-semibold text-white bg-navy hover:bg-navy-light text-sm transition-all duration-300 shadow-md flex items-center justify-center space-x-2 disabled:opacity-50"
+                >
+                  <span>{isVerifying ? 'Authenticating...' : 'Verify & Log In'}</span>
+                </button>
+
+                <div className="text-center pt-2">
+                  <button
+                    type="button"
+                    onClick={handleSendOtp}
+                    disabled={isSendingOtp}
+                    className="text-xs font-bold text-teal hover:text-teal-dark hover:underline disabled:opacity-50"
+                  >
+                    Resend Code
+                  </button>
+                </div>
+              </div>
+            </form>
+          )}
         </div>
       </div>
     );
