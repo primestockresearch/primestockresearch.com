@@ -1,42 +1,14 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
-import fs from 'fs';
-import path from 'path';
+import crypto from 'crypto';
 
-const authFilePath = path.join(process.cwd(), 'src/data/auth.json');
+const SECRET_KEY = process.env.ADMIN_PASSWORD || 'dwqpfftchgtspqdx';
 
-async function saveOtp(otpData) {
-  if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
-    try {
-      const res = await fetch(`${process.env.KV_REST_API_URL}/set/otp_code`, {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`
-        },
-        body: JSON.stringify(JSON.stringify(otpData))
-      });
-      if (res.ok) return true;
-    } catch (e) {
-      console.error("Vercel KV set OTP error:", e);
-    }
-  }
-
-  try {
-    const dir = path.dirname(authFilePath);
-    if (!fs.existsSync(dir)) {
-      fs.mkdirSync(dir, { recursive: true });
-    }
-    let existing = {};
-    if (fs.existsSync(authFilePath)) {
-      existing = JSON.parse(fs.readFileSync(authFilePath, 'utf8'));
-    }
-    existing.otp = otpData;
-    fs.writeFileSync(authFilePath, JSON.stringify(existing, null, 2), 'utf8');
-    return true;
-  } catch (e) {
-    console.error("Local file set OTP error:", e);
-    return false;
-  }
+function generateSignature(code, expires) {
+  return crypto
+    .createHmac('sha256', SECRET_KEY)
+    .update(`${code}:${expires}`)
+    .digest('hex');
 }
 
 async function sendOtpEmail(otpCode, recipientEmail) {
@@ -97,18 +69,20 @@ export async function POST(request) {
     }
 
     const otpCode = Math.floor(100000 + Math.random() * 900000).toString();
-    const expires = Date.now() + 5 * 60 * 1000;
+    const expires = Date.now() + 5 * 60 * 1000; // 5 minutes
 
-    await saveOtp({ code: otpCode, expires });
+    const hash = generateSignature(otpCode, expires);
+    const signature = `${expires}:${hash}`;
 
     const emailStatus = await sendOtpEmail(otpCode, adminEmail);
 
     return NextResponse.json({ 
       success: true, 
+      signature,
       message: emailStatus.sent ? 'OTP sent to your email.' : 'OTP logged to server console.' 
     });
 
   } catch (e) {
-    return NextResponse.json({ error: e.message }, { status: 450 });
+    return NextResponse.json({ error: e.message }, { status: 500 });
   }
 }

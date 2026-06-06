@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
+import crypto from 'crypto';
 
 const filePath = path.join(process.cwd(), 'src/data/complaints.json');
-const authFilePath = path.join(process.cwd(), 'src/data/auth.json');
 
 // Default fallback data
 const defaultData = {
@@ -99,34 +99,29 @@ async function savePersistedData(data) {
   }
 }
 
-async function readSession() {
-  if (process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN) {
-    try {
-      const res = await fetch(`${process.env.KV_REST_API_URL}/get/admin_session`, {
-        headers: {
-          Authorization: `Bearer ${process.env.KV_REST_API_TOKEN}`
-        },
-        cache: 'no-store'
-      });
-      if (res.ok) {
-        const json = await res.json();
-        if (json.result) return JSON.parse(json.result);
-      }
-    } catch (e) {
-      console.error("Vercel KV get session error:", e);
-    }
-  }
+const SECRET_KEY = process.env.ADMIN_PASSWORD || 'dwqpfftchgtspqdx';
 
-  try {
-    if (fs.existsSync(authFilePath)) {
-      const fileContent = fs.readFileSync(authFilePath, 'utf8');
-      const json = JSON.parse(fileContent);
-      return json.session;
-    }
-  } catch (e) {
-    console.error("Local file get session error:", e);
-  }
-  return null;
+function verifySessionToken(token) {
+  if (!token) return null;
+  const parts = token.split(':');
+  if (parts.length !== 3) return null;
+  
+  const [email, expiresStr, hash] = parts;
+  const expires = parseInt(expiresStr, 10);
+  if (isNaN(expires)) return null;
+  if (Date.now() > expires) return null; // expired
+  
+  const expectedHash = crypto
+    .createHmac('sha256', SECRET_KEY)
+    .update(`${email}:${expires}`)
+    .digest('hex');
+    
+  const hashBuf = Buffer.from(hash, 'hex');
+  const expectedBuf = Buffer.from(expectedHash, 'hex');
+  if (hashBuf.length !== expectedBuf.length) return null;
+  if (!crypto.timingSafeEqual(hashBuf, expectedBuf)) return null;
+  
+  return { email, expires };
 }
 
 export async function GET() {
@@ -145,10 +140,19 @@ export async function POST(request) {
     }
     
     const token = authHeader.substring(7);
-    const session = await readSession();
+    const session = verifySessionToken(token);
 
-    if (!session || session.token !== token || Date.now() > session.expires) {
+    if (!session) {
       return NextResponse.json({ error: 'Session expired or invalid. Please login again.' }, { status: 401 });
+    }
+
+    // Check if Vercel KV is not configured when running in production
+    const isProd = process.env.NODE_ENV === 'production' || process.env.VERCEL === '1';
+    const hasKV = process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN;
+    if (isProd && !hasKV) {
+      return NextResponse.json({ 
+        error: 'Database connection not configured. Please link a Vercel KV database in the Vercel dashboard to save disclosures.' 
+      }, { status: 503 });
     }
 
     const success = await savePersistedData(body);

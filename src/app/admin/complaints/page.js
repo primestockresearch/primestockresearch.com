@@ -20,6 +20,7 @@ import {
 export default function AdminComplaintsPage() {
   const [email] = useState('jaychudasama2611@gmail.com');
   const [otpCode, setOtpCode] = useState('');
+  const [signature, setSignature] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [otpSent, setOtpSent] = useState(false);
   
@@ -90,6 +91,7 @@ export default function AdminComplaintsPage() {
       const json = await res.json();
       if (res.ok) {
         setOtpSent(true);
+        setSignature(json.signature || '');
         setOtpMessage(json.message || 'OTP code sent. Please check your email.');
       } else {
         setLoginError(json.error || 'Failed to send OTP code.');
@@ -117,7 +119,7 @@ export default function AdminComplaintsPage() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ code: otpCode })
+        body: JSON.stringify({ code: otpCode, signature })
       });
 
       const json = await res.json();
@@ -142,6 +144,7 @@ export default function AdminComplaintsPage() {
     setIsLoggedIn(false);
     setOtpSent(false);
     setOtpCode('');
+    setSignature('');
   };
 
   const handleSave = async () => {
