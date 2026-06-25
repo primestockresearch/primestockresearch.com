@@ -1,39 +1,12 @@
 import Link from 'next/link';
-import { Mail, Phone, MapPin, Shield, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 export const metadata = {
   title: 'Complaint Redressal | Prime Stock Research',
-  description: 'Grievance redressal mechanism and escalation matrix. Contact details of our Compliance Officer, Principal Officer, and SEBI SCORES escalation details.',
+  description: 'Grievance redressal mechanism and escalation matrix. Contact details of our Compliance Officer and SEBI SCORES escalation details.',
 };
 
 export default function ComplaintRedressalPage() {
-  const steps = [
-    {
-      level: 'Level 1: Support Desk',
-      contact: 'Customer Support Team',
-      email: 'info@primestockresearch.com',
-      phone: '+91-9104129341',
-      timeline: 'Response within 24-48 business hours',
-      desc: 'Most queries, execution issues, and basic complaints are resolved here immediately.',
-    },
-    {
-      level: 'Level 2: Compliance Officer',
-      contact: 'Mr. Akash Anand (Compliance Officer)',
-      email: 'compliance@primestockresearch.com',
-      phone: '+91-9104129341',
-      timeline: 'Resolution within 7 working days',
-      desc: 'If Level 1 support is unsatisfied, escalate your query directly to our compliance desk.',
-    },
-    {
-      level: 'Level 3: Principal Officer',
-      contact: 'Mr. Rahul Mehta (Principal Officer)',
-      email: 'principal@primestockresearch.com',
-      phone: '+91-9104129341',
-      timeline: 'Resolution within 5 working days',
-      desc: 'If Level 2 remains unresolved or requires executive review, escalate to the Principal Officer.',
-    },
-  ];
-
   return (
     <div className="w-full bg-white">
       {/* Page Header */}
@@ -55,85 +28,58 @@ export default function ComplaintRedressalPage() {
 
       {/* Main Content */}
       <section className="py-16 md:py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          
-          {/* Intro description */}
-          <div className="space-y-4">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-sm md:text-base leading-relaxed text-gray-600">
+
+          <div className="space-y-2">
             <h2 className="text-xl md:text-2xl font-bold font-poppins text-navy">
-              Grievance Escalation Matrix
+              Complaint Redressal and SCORES
             </h2>
             <div className="h-1 w-12 bg-teal rounded-full"></div>
-            <p className="text-sm md:text-base text-gray-500 leading-relaxed">
-              At Prime Stock Research, we prioritize client satisfaction and endeavor to resolve all grievances efficiently. Clients are advised to follow the step-by-step escalation hierarchy below to address any issues.
-            </p>
           </div>
 
-          {/* Steps Timeline Grid */}
-          <div className="space-y-6">
-            {steps.map((step, idx) => (
-              <div 
-                key={idx} 
-                className="bg-white p-6 rounded-xl border border-navy/10 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group"
-              >
-                <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-teal group-hover:bg-navy transition-colors"></div>
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                  <div className="space-y-2">
-                    <span className="text-xs font-extrabold uppercase text-teal tracking-widest block font-poppins">
-                      {step.level}
-                    </span>
-                    <h3 className="text-lg font-bold font-poppins text-navy">
-                      {step.contact}
-                    </h3>
-                    <p className="text-xs md:text-sm text-gray-500 leading-relaxed">
-                      {step.desc}
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-3 pt-2 text-xs md:text-sm">
-                      <a href={`mailto:${step.email}`} className="flex items-center space-x-1.5 text-navy hover:text-teal transition-colors font-medium">
-                        <Mail className="h-4 w-4 shrink-0 text-teal" />
-                        <span>{step.email}</span>
-                      </a>
-                      <a href={`tel:${step.phone}`} className="flex items-center space-x-1.5 text-navy hover:text-teal transition-colors font-medium">
-                        <Phone className="h-4 w-4 shrink-0 text-teal" />
-                        <span>{step.phone}</span>
-                      </a>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-gray-50 border border-gray-100 p-3 rounded shrink-0 self-start md:self-auto text-center md:text-right">
-                    <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest block">
-                      Timeline
-                    </span>
-                    <span className="text-xs font-bold text-navy">
-                      {step.timeline}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <p>
+            Client&apos;s queries / complaints may arise due to lack of understanding or a deficiency of service experienced by clients. Deficiency of service may include lack of explanation, clarifications, understanding which escalates into shortfalls in the expected delivery standards, either due to inadequacy of facilities available or through the attitude of staff towards client.
+          </p>
 
-          {/* Compliance Officer Info */}
-          <div className="bg-gray-50/50 p-6 md:p-8 rounded-xl border border-gray-100 space-y-6">
-            <h3 className="text-lg font-bold font-poppins text-navy flex items-center space-x-2">
-              <Shield className="h-5.5 w-5.5 text-teal" />
-              <span>Registered Compliance Officer details</span>
-            </h3>
-            <hr className="border-gray-200" />
-            <div className="text-sm space-y-3">
-              <p><strong className="text-navy">Name:</strong> Mr. Akash Anand</p>
-              <p><strong className="text-navy">Designation:</strong> Compliance Officer</p>
-              <p><strong className="text-navy">Email:</strong> compliance@primestockresearch.com</p>
-              <p><strong className="text-navy">Phone:</strong> +91-9104129341</p>
-            </div>
-          </div>
+          <ol className="list-decimal pl-6 space-y-4">
+            <li>
+              Clients can seek clarification to their query and are further entitled to make a complaint in writing, orally or telephonically. An email may be sent to the Client Servicing Team on{' '}
+              <a href="mailto:info@primestockresearch.com" className="font-semibold text-gold hover:underline">
+                info@primestockresearch.com
+              </a>. Alternatively, the Investor may call on{' '}
+              <a href="tel:+919104129341" className="font-semibold text-gold hover:underline">
+                +91-9104129341
+              </a>.
+            </li>
+            <li>
+              A letter may also be written with their query/complaint and posted at the below mentioned address: <strong>As registered with SEBI</strong>
+            </li>
+            <li>
+              Clients can write to the research analyst at{' '}
+              <a href="mailto:info@primestockresearch.com" className="font-semibold text-gold hover:underline">
+                info@primestockresearch.com
+              </a>{' '}
+              if the Investor does not receive a response within 10 business days of writing to the Client Servicing Team. The client can expect a reply within 10 business days of approaching research analyst.
+            </li>
+            <li>
+              In case you are not satisfied with our response you can lodge your grievance with SEBI at{' '}
+              <a href="http://scores.gov.in" target="_blank" rel="noopener noreferrer" className="font-semibold text-gold hover:underline">
+                http://scores.gov.in
+              </a>{' '}
+              or you may also write to any of the offices of SEBI. SCORES may be accessed through SCORES mobile application as well, same can be downloaded from below link:<br />
+              <a href="https://play.google.com/store/apps/details?id=com.ionicframework.sebi236330" target="_blank" rel="noopener noreferrer" className="font-semibold text-gold hover:underline break-all">
+                https://play.google.com/store/apps/details?id=com.ionicframework.sebi236330
+              </a>
+            </li>
+          </ol>
 
-          {/* SEBI SCORES and SMART ODR Escalate Info */}
-          <div className="space-y-6 border border-amber-100 bg-amber-50/20 p-6 md:p-8 rounded-xl">
+          {/* SEBI SCORES and SMART ODR */}
+          <div className="space-y-4 border border-amber-100 bg-amber-50/20 p-6 md:p-8 rounded-xl">
             <h3 className="text-lg font-bold font-poppins text-navy">
-              SEBI SCORES & Online Dispute Resolution (ODR)
+              SEBI SCORES &amp; Online Dispute Resolution (ODR)
             </h3>
             <p className="text-xs md:text-sm leading-relaxed text-gray-600">
-              If the complaint remains unresolved within 30 days of filing with us, or if you are unsatisfied with our Principal Officer's response, you can escalate the matter to SEBI using the SCORES portal or file for arbitration through the SMART ODR platform.
+              If the complaint remains unresolved within 30 days of filing with us, or if you are unsatisfied with our response, you can escalate the matter to SEBI using the SCORES portal or file for arbitration through the SMART ODR platform.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
               <a
@@ -146,9 +92,8 @@ export default function ComplaintRedressalPage() {
                   <h4 className="font-bold text-navy text-sm font-poppins">SEBI SCORES Portal</h4>
                   <p className="text-[10px] text-gray-400">Lodge grievances online directly with SEBI</p>
                 </div>
-                <ExternalLink className="h-4.5 w-4.5 text-teal shrink-0 group-hover:translate-x-0.5 transition-transform" />
+                <ExternalLink className="h-4 w-4 text-teal shrink-0 group-hover:translate-x-0.5 transition-transform" />
               </a>
-
               <a
                 href="https://smartodr.in/"
                 target="_blank"
@@ -159,7 +104,7 @@ export default function ComplaintRedressalPage() {
                   <h4 className="font-bold text-navy text-sm font-poppins">SMART ODR Portal</h4>
                   <p className="text-[10px] text-gray-400">Online dispute resolution and arbitration</p>
                 </div>
-                <ExternalLink className="h-4.5 w-4.5 text-teal shrink-0 group-hover:translate-x-0.5 transition-transform" />
+                <ExternalLink className="h-4 w-4 text-teal shrink-0 group-hover:translate-x-0.5 transition-transform" />
               </a>
             </div>
           </div>
