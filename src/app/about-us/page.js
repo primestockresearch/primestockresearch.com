@@ -3,7 +3,7 @@ import { Target, Eye, ShieldCheck, Heart } from 'lucide-react';
 
 export const metadata = {
   title: 'About Us | Prime Stock Research',
-  description: 'Learn about Prime Stock Research, our mission, vision, research methodology, and commitment to disciplined stock market advisory.',
+  description: 'Learn about Prime Stock Research, our mission, vision, research methodology, and commitment to disciplined stock market research.',
 };
 
 export default function AboutUsPage() {
@@ -60,7 +60,7 @@ export default function AboutUsPage() {
               </h2>
               <div className="h-1.5 w-16 bg-gold rounded-full"></div>
               <p className="text-gray-500 leading-relaxed text-sm md:text-base">
-                Prime Stock Research is a SEBI registered Research Analyst company (INH000009560) dedicated to delivering actionable, research-backed financial recommendations for the Indian equity markets. 
+                Prime Stock Research is a SEBI registered Research Analyst company (INH000028273) dedicated to delivering actionable, research-backed financial recommendations for the Indian equity markets. 
               </p>
               <p className="text-gray-500 leading-relaxed text-sm md:text-base">
                 We analyze technical breakout patterns, volume distributions, and macroeconomic factors to structure premium trading suggestions. With years of experience in market cycles, our core strength lies in identifying momentum opportunities in large, mid, and small-cap segments.

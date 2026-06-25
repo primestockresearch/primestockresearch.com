@@ -17,14 +17,14 @@ export default function HeroSlider() {
     {
       title: 'Plan Your Investments Smartly',
       subtitle: 'Structured Advice for Long-Term Wealth',
-      description: 'Align your investment horizons with clear entry, target, and stop-loss advisory calls tailored for active retail and HNI investors.',
+      description: 'Align your investment horizons with clear entry, target, and stop-loss research calls tailored for active retail and HNI investors.',
       badge: 'Tailored Investment Horizon',
       icon: <Sparkles className="h-5 w-5 text-gold" />,
     },
     {
       title: 'Numbers Speak Louder Than Words',
-      subtitle: 'Disciplined Approach with 1:2 Risk-Reward',
-      description: 'Minimize risk and maximize returns. Our advisory calls are designed with robust risk management parameters.',
+      subtitle: 'Research-Driven Opportunities with Risk Management',
+      description: 'Research-backed recommendations designed using robust analytical frameworks and disciplined risk management principles.',
       badge: 'Proven Analytical Models',
       icon: <CheckCircle2 className="h-5 w-5 text-gold" />,
     },

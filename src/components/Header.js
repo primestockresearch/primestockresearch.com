@@ -60,16 +60,16 @@ export default function Header() {
           <span className="bg-teal/20 text-teal-light px-2 py-0.5 rounded text-[9px] font-bold tracking-widest border border-teal/30 mr-2 flex-shrink-0">
             SEBI REGISTERED
           </span>
-          <span className="text-xs md:text-sm font-semibold text-gray-200 mr-6">We are SEBI registered Research Analysts (INH000009560)</span>
-          <span className="text-teal text-xs md:text-sm font-bold mr-1.5 flex-shrink-0">⚠️ NOTICE:</span>
-          <span className="text-xs md:text-sm text-gray-300 mr-12">We accept payments only in our registered bank accounts &amp; UPI handle updated on the website.</span>
+          <span className="text-xs md:text-sm font-semibold text-gray-200 mr-6">We are SEBI registered Research Analysts (INH000028273)</span>
+          <span className="text-teal text-xs md:text-sm font-bold mr-1.5 flex-shrink-0">⚠️ ALERT:</span>
+          <span className="text-xs md:text-sm text-gray-300 mr-12">Trading stocks and options involves substantial risk of loss and is not suitable for every investor. Past performance is not indicative of future results. Always trade responsibly.</span>
           {/* Duplicate for seamless loop */}
           <span className="bg-teal/20 text-teal-light px-2 py-0.5 rounded text-[9px] font-bold tracking-widest border border-teal/30 mr-2 flex-shrink-0">
             SEBI REGISTERED
           </span>
-          <span className="text-xs md:text-sm font-semibold text-gray-200 mr-6">We are SEBI registered Research Analysts (INH000009560)</span>
-          <span className="text-teal text-xs md:text-sm font-bold mr-1.5 flex-shrink-0">⚠️ NOTICE:</span>
-          <span className="text-xs md:text-sm text-gray-300 mr-12">We accept payments only in our registered bank accounts &amp; UPI handle updated on the website.</span>
+          <span className="text-xs md:text-sm font-semibold text-gray-200 mr-6">We are SEBI registered Research Analysts (INH000028273)</span>
+          <span className="text-teal text-xs md:text-sm font-bold mr-1.5 flex-shrink-0">⚠️ ALERT:</span>
+          <span className="text-xs md:text-sm text-gray-300 mr-12">Trading stocks and options involves substantial risk of loss and is not suitable for every investor. Past performance is not indicative of future results. Always trade responsibly.</span>
         </div>
       </div>
 
@@ -85,7 +85,7 @@ export default function Header() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center group">
-              <Logo className="h-9 md:h-10 text-navy" />
+              <Logo className="h-14 md:h-16 text-navy" />
             </Link>
 
             {/* Desktop Navigation */}
@@ -258,7 +258,7 @@ export default function Header() {
       </nav>
 
       {/* Spacer when Navbar is Sticky */}
-      {isSticky && <div className="h-[76px] lg:h-[84px] w-full"></div>}
+      {isSticky && <div className="h-[80px] lg:h-[104px] w-full"></div>}
     </header>
   );
 }

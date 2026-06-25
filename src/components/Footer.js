@@ -13,16 +13,16 @@ export default function Footer() {
           {/* Brand & Registration */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center group">
-              <Logo className="h-9 text-white" dark={true} />
+              <Logo className="h-14 text-white" dark={true} />
             </Link>
             <p className="text-sm text-gray-400 leading-relaxed">
-              Prime Stock Research is a SEBI Registered Research Analyst providing premium equity research and stock advisory services.
+              Prime Stock Research is a SEBI Registered Research Analyst providing premium equity research and stock research services.
             </p>
             <div className="bg-navy-dark/40 p-4 rounded border border-navy-light/30 space-y-1.5 text-xs">
               <p className="font-semibold text-white">SEBI Registration Info:</p>
-              <p>No: <span className="text-teal font-mono">INH000009560</span></p>
+              <p>No: <span className="text-teal font-mono">INH000028273</span></p>
               <p>Type: Research Analyst</p>
-              <p>BASL Member ID: <span className="text-teal font-mono">BASL1045</span></p>
+
             </div>
           </div>
 
@@ -108,14 +108,14 @@ export default function Footer() {
           <div className="border border-red-900/40 bg-red-950/15 p-4 rounded text-justify leading-relaxed">
             <span className="font-bold text-red-400 uppercase mr-1">⚠️ Regulatory Disclaimer:</span>
             Investment in securities market are subject to market risks. Read all the related documents carefully before investing. 
-            Registration granted by SEBI, membership of BASL and certification from NISM in no way guarantee performance of the intermediary or provide any assurance of returns to investors.
+            Registration granted by SEBI and certification from NISM in no way guarantee performance of the intermediary or provide any assurance of returns to investors.
           </div>
 
-          {/* Detailed Advisory Disclaimer */}
+          {/* Detailed Research Disclaimer */}
           <div className="space-y-3 leading-relaxed text-justify">
             <p>
               <strong className="text-gray-300">Disclaimer:</strong> Prime Stock Research (hereinafter referred to as 'PSR' or the 'Firm') is a SEBI registered Research Analyst. 
-              The advisory calls and recommendations provided by PSR are based on the analysis of financial data, chart patterns, and technical/fundamental parameters. 
+              The research recommendations provided by PSR are based on the analysis of financial data, chart patterns, and technical/fundamental parameters. 
               We do not guarantee or promise any fixed returns, profits, or capital protection. Stock trading and investing carry high risks, and you may lose part or all of your invested capital. 
               Past performance is not indicative of future results.
             </p>

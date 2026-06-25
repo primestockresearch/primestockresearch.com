@@ -3,7 +3,7 @@ import { AlertCircle, HelpCircle } from 'lucide-react';
 
 export const metadata = {
   title: 'Refund & Cancellation Policy | Prime Stock Research',
-  description: 'Read the refund policy of Prime Stock Research. We operate on a strict no-refund and no-cancellation policy for all advisory services.',
+  description: 'Read the refund policy of Prime Stock Research. We operate on a strict no-refund and no-cancellation policy for all research services.',
 };
 
 export default function RefundPolicyPage() {
@@ -38,7 +38,7 @@ export default function RefundPolicyPage() {
                 No Refund Policy Agreement
               </h3>
               <p>
-                By subscribing to any research advisory plans offered by Prime Stock Research, you explicitly acknowledge and agree that all fee payments are completely non-refundable and non-cancellable under any circumstances.
+                By subscribing to any research plans offered by Prime Stock Research, you explicitly acknowledge and agree that all fee payments are completely non-refundable and non-cancellable under any circumstances.
               </p>
             </div>
           </div>
@@ -50,7 +50,7 @@ export default function RefundPolicyPage() {
                 1. Nature of Our Services
               </h3>
               <p>
-                Prime Stock Research provides financial research, market analysis, and stock recommendation advisory services. Once recommendations are published or transmitted (via SMS/WhatsApp), the intellectual service is considered fully delivered. Because the information cannot be "returned" or "reversed," we do not offer refunds.
+                Prime Stock Research provides financial research, market analysis, and stock recommendation research services. Once recommendations are published or transmitted (via SMS/WhatsApp), the intellectual service is considered fully delivered. Because the information cannot be "returned" or "reversed," we do not offer refunds.
               </p>
             </div>
 
@@ -77,7 +77,7 @@ export default function RefundPolicyPage() {
 
             <div className="space-y-2">
               <h3 className="text-base font-bold font-poppins text-navy uppercase tracking-wider">
-                4. Pre-subscription Advisory
+                4. Pre-subscription Research Details
               </h3>
               <p>
                 We highly recommend that prospective clients review our:

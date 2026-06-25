@@ -27,7 +27,7 @@ export default function HomePage() {
   const features = [
     {
       title: 'Upgraded Tools',
-      desc: 'We leverage advanced analytical software and technical scanners to uncover optimal market setups.',
+      desc: 'Combining technology-driven analysis with systematic research methodologies to generate actionable research insights.',
       icon: <Wrench className="h-6 w-6 text-teal" />,
     },
     {
@@ -36,13 +36,13 @@ export default function HomePage() {
       icon: <Layers className="h-6 w-6 text-teal" />,
     },
     {
-      title: 'Faster Returns',
-      desc: 'Short-term holding periods designed to optimize capital rotation and capture quick moves.',
+      title: 'Active Opportunities',
+      desc: 'Short-term research ideas focused on identifying timely market opportunities.',
       icon: <TrendingUp className="h-6 w-6 text-teal" />,
     },
     {
       title: 'No Commission',
-      desc: 'Pure advisory flat-fees. We do not participate in your profit-sharing or charge broker commissions.',
+      desc: 'Pure research flat-fees. We do not participate in your profit-sharing or charge broker commissions.',
       icon: <CircleDollarSign className="h-6 w-6 text-teal" />,
     },
   ];
@@ -50,7 +50,7 @@ export default function HomePage() {
   const services = [
     {
       name: 'Expert Plan',
-      price: '₹30,000 + GST',
+      price: '₹45,000 + GST',
       period: '1 Year',
       featured: false,
       features: [
@@ -62,7 +62,7 @@ export default function HomePage() {
     },
     {
       name: 'Elite Plan',
-      price: '₹1,25,000 + GST',
+      price: '₹1,50,000 + GST',
       period: '1 Year',
       featured: true,
       features: [
@@ -86,24 +86,21 @@ export default function HomePage() {
     },
   ];
 
-  const testimonials = [
+  const thoughts = [
     {
       name: 'Puneet Agrawal',
       role: 'Active Trader',
       text: 'Professionally managed team, quality & positive response. Their risk-reward management is one of the best I have seen in the industry.',
-      rating: 5,
     },
     {
       name: 'Shruti Gupta',
       role: 'HNI Investor',
       text: 'Thanks for helping and guiding at every investment stage. Their research calls are precise with clear targets and strict stop loss.',
-      rating: 5,
     },
     {
       name: 'Sandeep Bansal',
       role: 'Retail Investor',
-      text: 'Best stock adviser, full knowledge of market. The transparency they offer regarding their compliance and audit status is outstanding.',
-      rating: 5,
+      text: 'Best stock research analyst, full knowledge of market. The transparency they offer regarding their compliance and audit status is outstanding.',
     },
   ];
 
@@ -124,7 +121,7 @@ export default function HomePage() {
                   Who We Are
                 </span>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold font-poppins text-navy leading-tight tracking-tight">
-                  Premium Financial Insights & Stock Advisory
+                  Premium Financial Insights & Stock Research
                 </h2>
                 <div className="h-1.5 w-20 bg-teal rounded-full"></div>
               </div>
@@ -176,11 +173,11 @@ export default function HomePage() {
               Pricing Plans
             </span>
             <h2 className="text-3xl md:text-4xl font-bold font-poppins text-navy tracking-tight">
-              Our Premium Stock Advisory Services
+              Our Premium Research Services
             </h2>
             <div className="h-1.5 w-20 bg-teal rounded-full mx-auto"></div>
             <p className="text-sm md:text-base text-gray-500 leading-relaxed">
-              Choose the package that matches your capital, asset class preferences, and risk tolerance.
+              Choose the research plan that best aligns with your investment goals and market preferences.
             </p>
           </div>
 
@@ -253,47 +250,56 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Thoughts Section */}
       <section className="py-16 md:py-24 bg-white border-b border-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
             <span className="text-xs font-bold uppercase tracking-widest text-teal font-poppins">
-              Quotes
+              Thoughts
             </span>
             <h2 className="text-3xl md:text-4xl font-bold font-poppins text-navy tracking-tight">
-              What Our Clients Say About Us
+              What Our Clients Think About Us
             </h2>
             <div className="h-1.5 w-20 bg-teal rounded-full mx-auto"></div>
           </div>
 
-          {/* Testimonial Cards */}
+          {/* Thought Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((t, index) => (
+            {thoughts.map((t, index) => (
               <div
                 key={index}
-                className="bg-white p-6 md:p-8 rounded-xl border border-navy/10 shadow-sm flex flex-col justify-between"
+                className="bg-white p-7 md:p-8 rounded-2xl border border-navy/10 shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between relative overflow-hidden"
               >
-                <div className="space-y-4">
-                  {/* Rating */}
-                  <div className="flex items-center space-x-1">
-                    {[...Array(t.rating)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-teal text-teal" />
-                    ))}
+                {/* Large decorative quote mark */}
+                <span className="absolute top-4 right-5 text-7xl font-serif text-teal/10 leading-none select-none">&ldquo;</span>
+
+                <div className="space-y-4 relative z-10">
+                  {/* Quote icon */}
+                  <div className="w-9 h-9 rounded-full bg-teal/10 flex items-center justify-center">
+                    <svg className="w-4 h-4 text-teal" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                    </svg>
                   </div>
                   {/* Text */}
-                  <p className="text-sm md:text-base text-gray-600 italic leading-relaxed">
-                    "{t.text}"
+                  <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                    {t.text}
                   </p>
                 </div>
-                <div className="mt-6 pt-4 border-t border-gray-50">
-                  <h4 className="font-bold text-navy font-poppins text-base">
-                    {t.name}
-                  </h4>
-                  <p className="text-xs text-gray-400 font-semibold uppercase tracking-wider">
-                    {t.role}
-                  </p>
+
+                <div className="mt-6 pt-4 border-t border-gray-100 flex items-center space-x-3">
+                  <div className="w-9 h-9 rounded-full bg-navy flex items-center justify-center shrink-0">
+                    <span className="text-white text-sm font-bold font-poppins">{t.name.charAt(0)}</span>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-navy font-poppins text-sm">
+                      {t.name}
+                    </h4>
+                    <p className="text-xs text-teal font-semibold uppercase tracking-wider">
+                      {t.role}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}

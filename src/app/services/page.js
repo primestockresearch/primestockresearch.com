@@ -4,14 +4,14 @@ import ContactForm from '@/components/ContactForm';
 
 export const metadata = {
   title: 'Our Services | Prime Stock Research',
-  description: 'Explore our premium SEBI registered equity advisory plans: Expert, Elite, and Ultimate option trading modules designed with strict risk-reward ratios.',
+  description: 'Explore our premium SEBI registered equity research plans: Expert, Elite, and Ultimate option trading modules designed with strict risk-reward ratios.',
 };
 
 export default function ServicesPage() {
   const plans = [
     {
       name: 'Expert Plan',
-      price: '₹30,000 + GST',
+      price: '₹45,000 + GST',
       validity: '1 Year',
       desc: 'Ideal for retail equity traders looking for standard intraweek recommendations.',
       color: 'border-navy/10',
@@ -27,7 +27,7 @@ export default function ServicesPage() {
     },
     {
       name: 'Elite Plan',
-      price: '₹1,25,000 + GST',
+      price: '₹1,50,000 + GST',
       validity: '1 Year',
       desc: 'Our flagship plan designed for active traders looking for maximized risk-reward targets.',
       color: 'border-gold shadow-lg ring-1 ring-gold/20 scale-105',
@@ -67,8 +67,8 @@ export default function ServicesPage() {
       a: 'All research calls and recommendations are delivered in real-time via premium SMS gateways and official WhatsApp channels to ensure immediate execution.',
     },
     {
-      q: 'What is the refund policy for advisory services?',
-      a: 'We operate on a strict "No Refunds, No Cancellations" policy due to the nature of financial advisory services. Please read our Refund Policy page carefully before choosing a plan.',
+      q: 'What is the refund policy for research services?',
+      a: 'We operate on a strict "No Refunds, No Cancellations" policy due to the nature of financial research services. Please read our Refund Policy page carefully before choosing a plan.',
     },
     {
       q: 'Do you guarantee any returns or profits?',
@@ -86,7 +86,7 @@ export default function ServicesPage() {
       <section className="bg-gray-50/50 py-12 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left">
           <div className="text-xs font-semibold text-gold uppercase tracking-widest mb-2 font-poppins">
-            Advisory packages
+            Research packages
           </div>
           <h1 className="text-3xl md:text-4xl font-bold font-poppins text-navy">
             Our Research Services
@@ -166,7 +166,7 @@ export default function ServicesPage() {
               <table className="w-full text-left border-collapse min-w-[600px] text-sm">
                 <thead>
                   <tr className="bg-gray-50/50 border-b border-gray-100 text-navy font-poppins font-bold">
-                    <th className="p-4.5 pl-6">Advisory Feature</th>
+                    <th className="p-4.5 pl-6">Research Feature</th>
                     <th className="p-4.5">Expert Plan</th>
                     <th className="p-4.5 text-gold">Elite Plan (Featured)</th>
                     <th className="p-4.5">Ultimate Plan</th>

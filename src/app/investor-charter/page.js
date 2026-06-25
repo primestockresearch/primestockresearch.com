@@ -3,14 +3,14 @@ import { ShieldCheck, ClipboardList, CheckCircle, AlertTriangle } from 'lucide-r
 
 export const metadata = {
   title: 'Investor Charter | Prime Stock Research',
-  description: 'Official SEBI mandated Investor Charter for Research Analysts. Learn about investor rights, advisory guidelines, and grievance redressal pathways.',
+  description: 'Official SEBI mandated Investor Charter for Research Analysts. Learn about investor rights, research guidelines, and grievance redressal pathways.',
 };
 
 export default function InvestorCharterPage() {
   const dos = [
     'Always deal with SEBI registered Research Analysts.',
-    'Ensure that the Research Analyst has a valid registration certificate and BASL membership.',
-    'Pay advisory fees only through official banking channels (UPI, Net Banking, NEFT) to registered bank accounts.',
+    'Ensure that the Research Analyst has a valid registration certificate.',
+    'Pay research fees only through official banking channels (UPI, Net Banking, NEFT) to registered bank accounts.',
     'Read and understand the terms and conditions, disclaimers, and disclosures before subscribing.',
     'Ask for an official invoice for all payments made to the Research Analyst.',
     'State clearly your investment objectives, risk tolerance, and time horizon.',
@@ -21,7 +21,7 @@ export default function InvestorCharterPage() {
     'Do not make payments to any personal or individual bank accounts of employees or directors.',
     'Do not expect guaranteed or assured returns. Market investments are subject to risk.',
     'Do not sign blank documents or provide credentials of your demat account to anyone.',
-    'Do not pay cash for advisory services.',
+    'Do not pay cash for research services.',
   ];
 
   return (

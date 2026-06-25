@@ -33,9 +33,10 @@
     />
     <!-- Arrowhead -->
     <path
-      d="M 87 27 L 76 32 M 87 27 L 92 38"
+      d="M 87 27 L 76 32 L 92 38 Z"
+      fill="#FFFFFF"
       stroke="#FFFFFF"
-      strokeWidth="7"
+      strokeWidth="5"
       strokeLinecap="round"
       strokeLinejoin="round"
     />

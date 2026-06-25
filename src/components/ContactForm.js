@@ -27,7 +27,7 @@ export default function ContactForm() {
         Request a Call Back
       </h3>
       <p className="text-sm text-gray-500 mb-6">
-        Submit details below and our advisory experts will get in touch shortly.
+        Submit details below and our research experts will get in touch shortly.
       </p>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -141,7 +141,7 @@ export default function ContactForm() {
           <a href="/refund-policy" className="text-gold font-medium hover:underline">
             Refund Policy
           </a>{' '}
-          and consent to receive communication (SMS/Call/WhatsApp) regarding advisory services.
+          and consent to receive communication (SMS/Call/WhatsApp) regarding research services.
         </div>
 
         {/* Submit Button */}
