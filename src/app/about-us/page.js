@@ -41,7 +41,7 @@ export default function AboutUsPage() {
           <h1 className="text-3xl md:text-4xl font-bold font-poppins text-navy">
             About Our Firm
           </h1>
-          <div className="flex items-center justify-center sm:justify-start space-x-2 text-xs text-gray-400 mt-2 font-medium">
+          <div className="flex items-center justify-center sm:justify-start space-x-2 text-xs text-gray-600 mt-2 font-medium">
             <Link href="/" className="hover:text-navy transition-colors">Home</Link>
             <span>&gt;</span>
             <span className="text-gray-600">About Us</span>
@@ -60,7 +60,7 @@ export default function AboutUsPage() {
               </h2>
               <div className="h-1.5 w-16 bg-gold rounded-full"></div>
               <p className="text-gray-500 leading-relaxed text-sm md:text-base">
-                Prime Stock Research is a SEBI registered Research Analyst company (INH000028273) dedicated to delivering actionable, research-backed financial recommendations for the Indian equity markets. 
+                Prime Stock Research is a SEBI registered Research Analyst registered under CHUDASAMA JAYKUMAR M (INH000028273) dedicated to delivering actionable, research-backed financial recommendations for the Indian equity markets. 
               </p>
               <p className="text-gray-500 leading-relaxed text-sm md:text-base">
                 We analyze technical breakout patterns, volume distributions, and macroeconomic factors to structure premium trading suggestions. With years of experience in market cycles, our core strength lies in identifying momentum opportunities in large, mid, and small-cap segments.
@@ -94,7 +94,7 @@ export default function AboutUsPage() {
               <h2 className="text-2xl md:text-3xl font-bold font-poppins text-navy">
                 Our Core Pillars
               </h2>
-              <p className="text-xs md:text-sm text-gray-400 uppercase font-semibold tracking-wider">
+              <p className="text-xs md:text-sm text-gray-600 uppercase font-semibold tracking-wider">
                 Principles that drive our recommendations
               </p>
               <div className="h-1 w-16 bg-gold rounded-full mx-auto"></div>

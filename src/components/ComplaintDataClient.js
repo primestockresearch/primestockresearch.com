@@ -9,7 +9,7 @@ export default function ComplaintDataClient({ initialData }) {
   useEffect(() => {
     async function loadLiveData() {
       try {
-        const res = await fetch('/api/complaints');
+        const res = await fetch('/api/complaints', { cache: 'no-store' });
         if (res.ok) {
           const json = await res.json();
           // Verify that json contains the required keys
@@ -58,7 +58,7 @@ export default function ComplaintDataClient({ initialData }) {
           <h1 className="text-3xl md:text-4xl font-bold font-poppins text-navy">
             Complaint Data & History
           </h1>
-          <div className="flex items-center justify-center sm:justify-start space-x-2 text-xs text-gray-400 mt-2 font-medium">
+          <div className="flex items-center justify-center sm:justify-start space-x-2 text-xs text-gray-600 mt-2 font-medium">
             <Link href="/" className="hover:text-navy transition-colors">Home</Link>
             <span>&gt;</span>
             <span className="text-gray-600">Complaint Data</span>
@@ -71,12 +71,12 @@ export default function ComplaintDataClient({ initialData }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           
           <div className="max-w-3xl space-y-4">
-            <h2 className="text-xl md:text-2xl font-bold font-poppins text-navy">
-              SEBI Mandated Complaint Disclosures
+            <h2 className="text-xl md:text-2xl font-bold font-poppins text-teal">
+              Complaints Status
             </h2>
             <div className="h-1.5 w-12 bg-gold rounded-full"></div>
-            <p className="text-sm md:text-base text-gray-500 leading-relaxed">
-              As a SEBI registered Research Analyst, we are required to display the details of complaints received against our research services on our website. The data is updated by the 7th of every succeeding month.
+            <p className="text-sm md:text-base text-teal font-semibold font-poppins leading-relaxed mt-2">
+              Number Of Client&apos;s Complaints
             </p>
           </div>
 
@@ -125,8 +125,8 @@ export default function ComplaintDataClient({ initialData }) {
                 </tbody>
               </table>
             </div>
-            <p className="text-[10px] text-gray-400 leading-relaxed">
-              *Inclusive of complaints of previous months resolved in the current month. #Inclusive of complaints pending as on the last day of the month.
+            <p className="text-[10px] text-gray-500 leading-relaxed">
+              Average resolution time is calculated for complaints resolved during the month.
             </p>
           </div>
 
@@ -141,14 +141,14 @@ export default function ComplaintDataClient({ initialData }) {
                   <tr className="bg-gray-50 border-b border-gray-100 text-navy font-poppins font-bold">
                     <th className="p-4 pl-6 w-20">S.No</th>
                     <th className="p-4">Month</th>
-                    <th className="p-4">Carried Forward from Previous Month</th>
+                    <th className="p-4">Carried Forward</th>
                     <th className="p-4">Received</th>
                     <th className="p-4">Resolved*</th>
                     <th className="p-4 pr-6">Pending#</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100 text-gray-500 font-medium">
-                  {monthlyTrendData.map((row, i) => (
+                  {monthlyTrendData && monthlyTrendData.map((row, i) => (
                     <tr key={i} className="hover:bg-gray-50/40">
                       <td className="p-4 pl-6 text-navy font-semibold">{i + 1}</td>
                       <td className="p-4 text-navy font-semibold">{row.month}</td>

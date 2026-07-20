@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { 
   ShieldCheck, 
   Wrench, 
@@ -15,8 +16,29 @@ import {
 } from 'lucide-react';
 import HeroSlider from '@/components/HeroSlider';
 import ContactForm from '@/components/ContactForm';
+import BookingPopup from '@/components/BookingPopup';
+import ContactPopup from '@/components/ContactPopup';
 
 export default function HomePage() {
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+  const [isContactPopupOpen, setIsContactPopupOpen] = useState(false);
+  const [selectedPlanForBooking, setSelectedPlanForBooking] = useState('');
+
+  useEffect(() => {
+    const hasClosedPopup = sessionStorage.getItem('has_closed_booking_popup');
+    if (!hasClosedPopup) {
+      const timer = setTimeout(() => {
+        setIsContactPopupOpen(true);
+      }, 4000);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  const openBooking = (planName) => {
+    setSelectedPlanForBooking(planName);
+    setIsBookingOpen(true);
+  };
+
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact-section');
     if (contactSection) {
@@ -136,9 +158,9 @@ export default function HomePage() {
                       {feature.icon}
                     </div>
                     <div className="space-y-1">
-                      <h4 className="font-bold text-navy font-poppins text-base">
+                      <h3 className="font-bold text-navy font-poppins text-base">
                         {feature.title}
-                      </h4>
+                      </h3>
                       <p className="text-xs text-gray-500 leading-relaxed">
                         {feature.desc}
                       </p>
@@ -209,7 +231,7 @@ export default function HomePage() {
                     <p className="text-3xl font-extrabold font-poppins text-navy">
                       {plan.price}
                     </p>
-                    <p className="text-xs text-gray-400 font-medium uppercase mt-0.5 tracking-wider">
+                    <p className="text-xs text-gray-600 font-medium uppercase mt-0.5 tracking-wider">
                       Validity: {plan.period}
                     </p>
                   </div>
@@ -233,7 +255,7 @@ export default function HomePage() {
                 {/* Card Button */}
                 <div className="p-6 md:p-8 pt-0">
                   <button
-                    onClick={scrollToContact}
+                    onClick={() => openBooking(plan.name)}
                     className={`w-full py-3 rounded font-semibold text-center text-sm transition-all duration-300 ${
                       plan.featured
                         ? 'bg-teal hover:bg-teal-light text-white font-bold shadow-md hover:shadow-lg'
@@ -256,11 +278,8 @@ export default function HomePage() {
           
           {/* Section Header */}
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-teal font-poppins">
-              Thoughts
-            </span>
             <h2 className="text-3xl md:text-4xl font-bold font-poppins text-navy tracking-tight">
-              What Our Clients Think About Us
+              Thoughts
             </h2>
             <div className="h-1.5 w-20 bg-teal rounded-full mx-auto"></div>
           </div>
@@ -287,20 +306,6 @@ export default function HomePage() {
                     {t.text}
                   </p>
                 </div>
-
-                <div className="mt-6 pt-4 border-t border-gray-100 flex items-center space-x-3">
-                  <div className="w-9 h-9 rounded-full bg-navy flex items-center justify-center shrink-0">
-                    <span className="text-white text-sm font-bold font-poppins">{t.name.charAt(0)}</span>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-navy font-poppins text-sm">
-                      {t.name}
-                    </h4>
-                    <p className="text-xs text-teal font-semibold uppercase tracking-wider">
-                      {t.role}
-                    </p>
-                  </div>
-                </div>
               </div>
             ))}
           </div>
@@ -315,8 +320,8 @@ export default function HomePage() {
             💡 Educational Insight
           </span>
           <p className="text-lg md:text-xl font-medium font-poppins leading-relaxed">
-            "Information-Time Horizon defines the time period to achieve a financial goal. 
-            It may be 1-5 years, 5-10 years, 15 years, 30 years or even more."
+            &quot;Information-Time Horizon defines the time period to achieve a financial goal. 
+            It may be 1-5 years, 5-10 years, 15 years, 30 years or even more.&quot;
           </p>
         </div>
       </section>
@@ -347,10 +352,10 @@ export default function HomePage() {
                   <div className="p-3 bg-navy/5 border border-navy/10 rounded-full text-navy shrink-0">
                     <Mail className="h-5 w-5" />
                   </div>
-                  <div>
-                    <h4 className="font-bold text-navy font-poppins text-sm uppercase tracking-wider mb-1">
-                      Email Us
-                    </h4>
+                    <div>
+                      <h3 className="font-bold text-navy font-poppins text-sm uppercase tracking-wider mb-1">
+                        Email Us
+                      </h3>
                     <a href="mailto:info@primestockresearch.com" className="text-sm text-teal font-semibold hover:underline">
                       info@primestockresearch.com
                     </a>
@@ -361,10 +366,10 @@ export default function HomePage() {
                   <div className="p-3 bg-navy/5 border border-navy/10 rounded-full text-navy shrink-0">
                     <Phone className="h-5 w-5" />
                   </div>
-                  <div>
-                    <h4 className="font-bold text-navy font-poppins text-sm uppercase tracking-wider mb-1">
-                      Call Support
-                    </h4>
+                    <div>
+                      <h3 className="font-bold text-navy font-poppins text-sm uppercase tracking-wider mb-1">
+                        Call Support
+                      </h3>
                     <a href="tel:+919104129341" className="text-sm text-teal font-semibold hover:underline">
                       +91-9104129341
                     </a>
@@ -387,6 +392,23 @@ export default function HomePage() {
 
         </div>
       </section>
+
+      <BookingPopup
+        isOpen={isBookingOpen}
+        onClose={() => {
+          setIsBookingOpen(false);
+          sessionStorage.setItem('has_closed_booking_popup', 'true');
+        }}
+        initialPlanName={selectedPlanForBooking}
+      />
+
+      <ContactPopup
+        isOpen={isContactPopupOpen}
+        onClose={() => {
+          setIsContactPopupOpen(false);
+          sessionStorage.setItem('has_closed_booking_popup', 'true');
+        }}
+      />
     </div>
   );
 }

@@ -3,29 +3,20 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 
+export const dynamic = 'force-dynamic';
+
 const filePath = path.join(process.cwd(), 'src/data/complaints.json');
 
 // Default fallback data
 const defaultData = {
-  currentMonthName: "May 2026",
+  currentMonthName: "June 2026",
   currentMonthData: [
     { sl: 1, receivedFrom: 'Directly from Investors', pendingLastMonth: 0, received: 0, resolved: 0, pendingLessThan3: 0, pendingMoreThan3: 0, avgResolutionTime: '0 days' },
     { sl: 2, receivedFrom: 'SEBI (SCORES)', pendingLastMonth: 0, received: 0, resolved: 0, pendingLessThan3: 0, pendingMoreThan3: 0, avgResolutionTime: '0 days' },
     { sl: 3, receivedFrom: 'Other Sources (if any)', pendingLastMonth: 0, received: 0, resolved: 0, pendingLessThan3: 0, pendingMoreThan3: 0, avgResolutionTime: '0 days' }
   ],
   monthlyTrendData: [
-    { month: 'June 2025', carriedForward: 0, received: 0, resolved: 0, pending: 0 },
-    { month: 'July 2025', carriedForward: 0, received: 0, resolved: 0, pending: 0 },
-    { month: 'August 2025', carriedForward: 0, received: 0, resolved: 0, pending: 0 },
-    { month: 'September 2025', carriedForward: 0, received: 0, resolved: 0, pending: 0 },
-    { month: 'October 2025', carriedForward: 0, received: 0, resolved: 0, pending: 0 },
-    { month: 'November 2025', carriedForward: 0, received: 0, resolved: 0, pending: 0 },
-    { month: 'December 2025', carriedForward: 0, received: 0, resolved: 0, pending: 0 },
-    { month: 'January 2026', carriedForward: 0, received: 0, resolved: 0, pending: 0 },
-    { month: 'February 2026', carriedForward: 0, received: 0, resolved: 0, pending: 0 },
-    { month: 'March 2026', carriedForward: 0, received: 0, resolved: 0, pending: 0 },
-    { month: 'April 2026', carriedForward: 0, received: 0, resolved: 0, pending: 0 },
-    { month: 'May 2026', carriedForward: 0, received: 0, resolved: 0, pending: 0 }
+    { month: 'June 2026', carriedForward: 0, received: 0, resolved: 0, pending: 0 }
   ],
   annualTrendData: [
     { year: '2025-26', carriedForward: 0, received: 0, resolved: 0, pending: 0 }

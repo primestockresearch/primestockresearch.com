@@ -39,18 +39,27 @@ export default function Header() {
   ];
 
   const complianceLinks = [
-    { name: 'Investor Charter', path: '/investor-charter' },
-    { name: 'Complaint Redressal', path: '/complaint-redressal' },
-    { name: 'Complaint Data', path: '/complaint-data' },
-    { name: 'Annual Audit', path: '/annual-audit' },
+    { name: 'Investor Charter', path: '/compliance?tab=investor-charter' },
+    { name: 'Complaint Redressal', path: '/compliance?tab=complaint-redressal' },
+    { name: 'Complaint Data', path: '/compliance?tab=complaint-data' },
+    { name: 'Annual Audit', path: '/compliance?tab=annual-audit' },
   ];
 
   const otherLinks = [
     { name: 'Contact Us', path: '/contact-us' },
   ];
 
-  const isLinkActive = (path) => pathname === path;
-  const isComplianceActive = () => complianceLinks.some(link => pathname === link.path);
+  const isLinkActive = (path) => {
+    if (path.startsWith('/compliance')) {
+      if (typeof window !== 'undefined') {
+        const currentUrl = window.location.pathname + window.location.search;
+        return currentUrl === path;
+      }
+      return false;
+    }
+    return pathname === path;
+  };
+  const isComplianceActive = () => pathname === '/compliance';
 
   return (
     <header className="w-full z-50">
@@ -60,15 +69,15 @@ export default function Header() {
           <span className="bg-teal/20 text-teal-light px-2 py-0.5 rounded text-[9px] font-bold tracking-widest border border-teal/30 mr-2 flex-shrink-0">
             SEBI REGISTERED
           </span>
-          <span className="text-xs md:text-sm font-semibold text-gray-200 mr-6">We are SEBI registered Research Analysts (INH000028273)</span>
-          <span className="text-teal text-xs md:text-sm font-bold mr-1.5 flex-shrink-0">⚠️ ALERT:</span>
+          <span className="text-xs md:text-sm font-semibold text-gray-200 mr-6">We are SEBI registered Research Analyst: CHUDASAMA JAYKUMAR M (INH000028273)</span>
+          <span className="text-teal-light text-xs md:text-sm font-bold mr-1.5 flex-shrink-0">⚠️ ALERT:</span>
           <span className="text-xs md:text-sm text-gray-300 mr-12">Trading stocks and options involves substantial risk of loss and is not suitable for every investor. Past performance is not indicative of future results. Always trade responsibly.</span>
           {/* Duplicate for seamless loop */}
           <span className="bg-teal/20 text-teal-light px-2 py-0.5 rounded text-[9px] font-bold tracking-widest border border-teal/30 mr-2 flex-shrink-0">
             SEBI REGISTERED
           </span>
-          <span className="text-xs md:text-sm font-semibold text-gray-200 mr-6">We are SEBI registered Research Analysts (INH000028273)</span>
-          <span className="text-teal text-xs md:text-sm font-bold mr-1.5 flex-shrink-0">⚠️ ALERT:</span>
+          <span className="text-xs md:text-sm font-semibold text-gray-200 mr-6">We are SEBI registered Research Analyst: CHUDASAMA JAYKUMAR M (INH000028273)</span>
+          <span className="text-teal-light text-xs md:text-sm font-bold mr-1.5 flex-shrink-0">⚠️ ALERT:</span>
           <span className="text-xs md:text-sm text-gray-300 mr-12">Trading stocks and options involves substantial risk of loss and is not suitable for every investor. Past performance is not indicative of future results. Always trade responsibly.</span>
         </div>
       </div>

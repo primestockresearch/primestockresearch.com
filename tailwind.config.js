@@ -14,9 +14,9 @@ module.exports = {
           dark: '#051024',
         },
         teal: {
-          light: '#00a2b5',
-          DEFAULT: '#008B9B',
-          dark: '#007380',
+          light: '#00E5FF',
+          DEFAULT: '#007A87',
+          dark: '#005C66',
         },
         accentRed: {
           light: '#ff4d6a',
@@ -24,9 +24,9 @@ module.exports = {
           dark: '#d91433',
         },
         gold: {
-          light: '#00a2b5',
-          DEFAULT: '#008B9B',
-          dark: '#007380',
+          light: '#00E5FF',
+          DEFAULT: '#007A87',
+          dark: '#005C66',
         },
       },
       fontFamily: {

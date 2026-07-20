@@ -42,10 +42,12 @@ export default function RootLayout({ children }) {
         <Header />
         <main className="flex-grow bg-white">
           {children}
+          <QuickLeadForm />
         </main>
-        <QuickLeadForm />
         <Footer />
-        <WhatsAppButton />
+        <aside aria-label="Quick Actions">
+          <WhatsAppButton />
+        </aside>
       </body>
     </html>
   );

@@ -19,7 +19,7 @@ export default function ContactUsPage() {
           <h1 className="text-3xl md:text-4xl font-bold font-poppins text-navy">
             Contact Support Desk
           </h1>
-          <div className="flex items-center justify-center sm:justify-start space-x-2 text-xs text-gray-400 mt-2 font-medium">
+          <div className="flex items-center justify-center sm:justify-start space-x-2 text-xs text-gray-600 mt-2 font-medium">
             <Link href="/" className="hover:text-navy transition-colors">Home</Link>
             <span>&gt;</span>
             <span className="text-gray-600">Contact Us</span>
@@ -52,9 +52,9 @@ export default function ContactUsPage() {
                     <Mail className="h-5 w-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-navy font-poppins text-sm uppercase tracking-wider mb-1">
+                    <h3 className="font-bold text-navy font-poppins text-sm uppercase tracking-wider mb-1">
                       Email Address
-                    </h4>
+                    </h3>
                     <a href="mailto:info@primestockresearch.com" className="text-sm text-teal font-semibold hover:underline">
                       info@primestockresearch.com
                     </a>
@@ -66,9 +66,9 @@ export default function ContactUsPage() {
                     <Phone className="h-5 w-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-navy font-poppins text-sm uppercase tracking-wider mb-1">
+                    <h3 className="font-bold text-navy font-poppins text-sm uppercase tracking-wider mb-1">
                       Helpline Numbers
-                    </h4>
+                    </h3>
                     <div className="flex flex-col text-sm text-teal font-semibold">
                       <a href="tel:+919104129341" className="hover:underline">+91-9104129341</a>
                     </div>
@@ -80,9 +80,9 @@ export default function ContactUsPage() {
                     <MapPin className="h-5 w-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-navy font-poppins text-sm uppercase tracking-wider mb-1">
+                    <h3 className="font-bold text-navy font-poppins text-sm uppercase tracking-wider mb-1">
                       Office Address
-                    </h4>
+                    </h3>
                     <p className="text-sm text-gray-600 leading-relaxed font-semibold">
                       L 2170, Opp. Zund Bhavani Mandir, Zund Society,<br />
                       Bandar Road, Chorvad, JUNAGADH,<br />
@@ -96,9 +96,9 @@ export default function ContactUsPage() {
                     <Clock className="h-5 w-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-navy font-poppins text-sm uppercase tracking-wider mb-1">
+                    <h3 className="font-bold text-navy font-poppins text-sm uppercase tracking-wider mb-1">
                       Business Hours
-                    </h4>
+                    </h3>
                     <p className="text-sm text-gray-600">
                       Monday to Friday: 9:00 AM to 6:00 PM IST (Market Hours)
                     </p>

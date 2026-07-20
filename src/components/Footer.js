@@ -20,9 +20,9 @@ export default function Footer() {
             </p>
             <div className="bg-navy-dark/40 p-4 rounded border border-navy-light/30 space-y-1.5 text-xs">
               <p className="font-semibold text-white">SEBI Registration Info:</p>
+              <p>Name: <span className="text-gray-300">CHUDASAMA JAYKUMAR M</span></p>
               <p>No: <span className="text-teal font-mono">INH000028273</span></p>
               <p>Type: Research Analyst</p>
-
             </div>
           </div>
 
@@ -54,16 +54,16 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link href="/investor-charter" className="hover:text-teal transition-colors duration-150">Investor Charter</Link>
+                <Link href="/compliance?tab=investor-charter" className="hover:text-teal transition-colors duration-150">Investor Charter</Link>
               </li>
               <li>
-                <Link href="/complaint-redressal" className="hover:text-teal transition-colors duration-150">Complaint Redressal</Link>
+                <Link href="/compliance?tab=complaint-redressal" className="hover:text-teal transition-colors duration-150">Complaint Redressal</Link>
               </li>
               <li>
-                <Link href="/complaint-data" className="hover:text-teal transition-colors duration-150">Complaint Data</Link>
+                <Link href="/compliance?tab=complaint-data" className="hover:text-teal transition-colors duration-150">Complaint Data</Link>
               </li>
               <li>
-                <Link href="/annual-audit" className="hover:text-teal transition-colors duration-150">Annual Audit Status</Link>
+                <Link href="/compliance?tab=annual-audit" className="hover:text-teal transition-colors duration-150">Annual Audit Status</Link>
               </li>
 
             </ul>
@@ -108,26 +108,17 @@ export default function Footer() {
           <div className="border border-red-900/40 bg-red-950/15 p-4 rounded text-justify leading-relaxed">
             <span className="font-bold text-red-400 uppercase mr-1">⚠️ Regulatory Disclaimer:</span>
             Investment in securities market are subject to market risks. Read all the related documents carefully before investing. 
-            Registration granted by SEBI and certification from NISM in no way guarantee performance of the intermediary or provide any assurance of returns to investors.
           </div>
 
           {/* Detailed Research Disclaimer */}
           <div className="space-y-3 leading-relaxed text-justify">
             <p>
-              <strong className="text-gray-300">Disclaimer:</strong> Prime Stock Research (hereinafter referred to as 'PSR' or the 'Firm') is a SEBI registered Research Analyst. 
-              The research recommendations provided by PSR are based on the analysis of financial data, chart patterns, and technical/fundamental parameters. 
-              We do not guarantee or promise any fixed returns, profits, or capital protection. Stock trading and investing carry high risks, and you may lose part or all of your invested capital. 
-              Past performance is not indicative of future results.
-            </p>
-            <p>
-              Clients are advised to consult their independent financial advisors before acting on any recommendations. 
-              All research outputs are distributed solely for informational purposes and do not constitute an offer to buy or sell securities. 
-              PSR and its directors/employees will not accept any liability for financial loss arising from the use of advice provided.
+              <strong className="text-gray-300">Disclaimer:</strong> Registration granted by SEBI and certification from NISM in no way guarantee performance of the intermediary or provide any assurance of returns to investors.
             </p>
           </div>
 
           {/* Bottom Copyright bar */}
-          <div className="flex flex-col md:flex-row items-center justify-between pt-6 border-t border-navy-light/10 text-[11px] text-gray-500">
+          <div className="flex flex-col md:flex-row items-center justify-between pt-6 border-t border-navy-light/10 text-[11px] text-gray-400">
             <p>© {currentYear} Prime Stock Research. All Rights Reserved.</p>
           </div>
         </div>
